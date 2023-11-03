@@ -1,0 +1,53 @@
+<div class="form-user-container">
+  <div class="form-container">
+    <div class="image-container">
+      <img src="../../assets/icon/Icon-consultify-removebg-preview.png" />
+    </div>
+    <div class="title-form-container">
+      <h1>Crear usuario</h1>
+    </div>
+    <form [formGroup]="formUser" (ngSubmit)="addUser()">
+      <ion-item>
+        <ion-input label="Email" formControlName="email" />
+      </ion-item>
+      <ion-item>
+        <ion-input label="Nombre de usuario" formControlName="username" />
+      </ion-item>
+      <ion-item>
+        <ion-input label="Contraseña" formControlName="password" />
+      </ion-item>
+
+      <ion-button type="submit">Guardar</ion-button>
+      <ion-button (click)="editUser()">Guardar edición</ion-button>
+    </form>
+  </div>
+
+<div class="table-data-container">
+  <div class="show-data-container">
+    <div class="title-table-container"><h1>Usuarios</h1></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Nombre de usuario</th>
+          <th>Contraseña</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let b of users">
+          <td>{{ b.email }}</td>
+          <td>{{ b.username }}</td>
+          <td>{{ b.password }}</td>
+          <!-- <ion-button (click)="deleteUser(b.id)">        <img src="../../assets/images/trash.svg"/>
+          </ion-button>
+          <ion-button (click)="addInfoInForm(b, b.id)">        <img src="../../assets/images/trash.svg"/>
+          </ion-button> -->
+          <input type="image"(click)="addInfoInForm(b, b.id)" src="../../assets/images/trash.svg" alt="Enviar formulario">
+          <input type="image"(click)="deleteUser(b.id)" src="../../assets/images/edit.svg" alt="Enviar formulario">
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
