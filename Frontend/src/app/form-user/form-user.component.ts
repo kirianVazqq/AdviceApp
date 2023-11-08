@@ -14,60 +14,60 @@ export class FormUserComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
-    this.getAllUsers();
-    this.formUser = new FormGroup({
-      email: new FormControl(''),
-      username: new FormControl(''),
-      password: new FormControl(''),
-    });
+    // this.getAllUsers();
+    // this.formUser = new FormGroup({
+    //   email: new FormControl(''),
+    //   username: new FormControl(''),
+    //   password: new FormControl(''),
+    // });
   }
-  ionViewDidEnter() {}
-  getAllUsers() {
-    this.userService.getUsers().subscribe((user) => {
-      this.users = user;
-    });
-  }
+  // ionViewDidEnter() {}
+  // getAllUsers() {
+  //   this.userService.getUsers().subscribe((user) => {
+  //     this.users = user;
+  //   });
+  // }
 
-  addUser() {
-    const email = this.formUser.get('email')?.value;
-    const username = this.formUser.get('username')?.value;
-    const password = this.formUser.get('password')?.value;
-    this.userService
-      .addUser({ email, username, password })
-      .subscribe((response) => {
-        this.getAllUsers();
-        this.formUser.reset();
-      });
-  }
-  editUser() {
-    const id= this.editingId
-    const email = this.formUser.get('email')?.value;
-    const username = this.formUser.get('username')?.value;
-    const password = this.formUser.get('password')?.value;
-    if(id==null){
-      return console.log("El id no puede ser null")
-    }
-    return this.userService
-    .editUser(id,email,username,password)
-    .subscribe((response) => {
-      this.getAllUsers();
-      this.formUser.reset();
-      });
-    }
+  // addUser() {
+  //   const email = this.formUser.get('email')?.value;
+  //   const username = this.formUser.get('username')?.value;
+  //   const password = this.formUser.get('password')?.value;
+  //   this.userService
+  //     .addUser({ email, username, password })
+  //     .subscribe((response) => {
+  //       this.getAllUsers();
+  //       this.formUser.reset();
+  //     });
+  // }
+  // editUser() {
+  //   const id= this.editingId
+  //   const email = this.formUser.get('email')?.value;
+  //   const username = this.formUser.get('username')?.value;
+  //   const password = this.formUser.get('password')?.value;
+  //   if(id==null){
+  //     return console.log("El id no puede ser null")
+  //   }
+  //   return this.userService
+  //   .editUser(id,email,username,password)
+  //   .subscribe((response) => {
+  //     this.getAllUsers();
+  //     this.formUser.reset();
+  //     });
+  //   }
 
-  deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe((response) => {
-      this.getAllUsers();
-      this.formUser.reset();
-    });
-  }
-  addInfoInForm(user: any, id: number) {
-    this.editingId = id;
-    this.formUser.setValue({
-      email: user.email,
-      username: user.username,
-      password: user.password,
-    });
-  }
+  // deleteUser(id: number) {
+  //   this.userService.deleteUser(id).subscribe((response) => {
+  //     this.getAllUsers();
+  //     this.formUser.reset();
+  //   });
+  // }
+  // addInfoInForm(user: any, id: number) {
+  //   this.editingId = id;
+  //   this.formUser.setValue({
+  //     email: user.email,
+  //     username: user.username,
+  //     password: user.password,
+  //   });
+  // }
 }
 
