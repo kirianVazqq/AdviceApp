@@ -1,0 +1,119 @@
+.image-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 20px;
+  }
+  
+  .title-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-bottom: 25px;
+    // margin-top: 10px;
+  }
+  
+  .title-container h1 {
+    font-size: 60px;
+  
+  }
+  
+  
+  .image-container img {
+    width: 150px;
+    height: 150px;
+  
+  }
+  
+  .form-user-container {
+    display: flex;
+  }
+  
+  .form-container {
+    border-radius: 15px;
+    background: #F0F0F0;
+    width: 498px;
+    height: 90%;
+    margin: 30px;
+  
+  
+  }
+  
+  .form-container ion-button {
+    --background: #FC2020;
+    font-size: 22px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  
+  .form-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  
+  }
+  
+.input-container{
+    border: 1px solid black;
+    margin: 20px;
+    width: 400px;
+    height: 48px;
+    border-radius: 20px;
+    --background: white; 
+  
+  
+  }
+  
+.input-container ion-input {
+    --color: black;
+    font-size: 22px;
+  
+  }
+  .checkbox-container{
+    background-color:#F0F0F0;
+    p{
+        color:black;
+    }
+  }
+  
+  .show-data-container {}
+  
+  .table-data-container {
+    margin: 15px;
+    width: 891px;
+    height: 904px;
+    border-radius: 15px;
+    background: #F0F0F0;
+  
+  }
+  
+  td,
+  th,
+  h1 {
+    color: black;
+    /* Cambia "red" por el color que desees */
+  }
+  
+  //-------------------Form----------------------//
+  .title-table-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 10px;
+  }
+  .show-data-container {
+  
+    table {
+      width: 100%;
+   }
+   th, td {
+      width: 25%;  width: 25%;
+      text-align: center; }
+     
+  }
+  

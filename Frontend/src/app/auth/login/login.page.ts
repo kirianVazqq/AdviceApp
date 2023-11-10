@@ -11,33 +11,35 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   constructor(
     private router: Router,
     private authService: AuthService,
-    private alertController: AlertController) { }
+    private alertController: AlertController
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   login(form: NgForm) {
     let user: User = {
       // id: null,
-      username: form.value.email,
+      username: form.value.username,
       password: form.value.password,
       // name: null,
       // isAdmin: null
     };
-    this.authService.login(user).subscribe((res) => {
-      if (!res.access_token) {
-        this.presentAlert("invalid credentials");
-        return;
+    this.authService.login(user).subscribe(
+      (res) => {
+        if (!res.access_token) {
+          this.presentAlert('invalid credentials');
+          return;
+        }
+        this.router.navigateByUrl('/main');
+        form.reset();
+      },
+      (err) => {
+        this.presentAlert('Error');
       }
-      this.router.navigateByUrl('/home');
-      form.reset();
-    }, err => {
-      this.presentAlert("Error");
-    });
+    );
   }
 
   async presentAlert(message: string) {
@@ -46,10 +48,9 @@ export class LoginPage implements OnInit {
       header: 'Error',
       subHeader: message,
       message: 'Could not login. Try again.',
-      buttons: ['OK']
+      buttons: ['OK'],
     });
 
     await alert.present();
   }
-
 }

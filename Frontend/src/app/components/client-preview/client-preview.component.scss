@@ -1,0 +1,35 @@
+
+.client-preview-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #F0F0F0;
+    width: 700px;
+    height: 260px;
+    margin-left: 70px;
+}
+
+
+.client-info {
+
+    display: flex;
+    justify-content: space-around;
+
+    p {
+        color: black;
+    }
+
+
+}
+
+.button-container{
+display:flex;
+justify-content: center;
+    ion-button {
+        --border-radius: 10px;
+        --background: white;
+        --color: black;
+        width: 140px;
+        height: 40px;
+    }
+}

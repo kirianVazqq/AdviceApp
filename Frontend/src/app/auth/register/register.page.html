@@ -1,0 +1,103 @@
+<div class="form-user-container">
+  <div class="form-container">
+    <div class="image-container">
+      <img src="../../assets/icon/Icon-consultify-removebg-preview.png" />
+    </div>
+    <div class="title-form-container">
+      <h1>Crear usuario</h1>
+    </div>
+    <form #form="ngForm" (ngSubmit)="register(form)">
+      <div text-center></div>
+      <div padding>
+        <ion-item class="input-container">
+          <ion-input
+            name="name"
+            type="text"
+            placeholder="Nombre de usuario"
+            ngModel
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item class="input-container">
+          <ion-input
+            name="email"
+            type="email"
+            placeholder="Correo"
+            ngModel
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item class="input-container">
+          <ion-input
+            name="password"
+            type="password"
+            placeholder="Contraseña"
+            ngModel
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item class="input-container">
+          <ion-input
+            name="confirm"
+            type="password"
+            placeholder="Repita la contraseña"
+            ngModel
+            required
+          ></ion-input>
+        </ion-item>
+      </div>
+      <!-- <ion-checkbox class="checkbox-container" labelPlacement="end"
+        ><p>Admin</p></ion-checkbox -->
+      >
+      <div>
+        <ion-button
+          size="large"
+          type="submit"
+          [disabled]="form.invalid"
+          expand="block"
+          >Register</ion-button
+        >
+      </div>
+    </form>
+  </div>
+
+  <!-- //--------------------------------------------------------------------------// -->
+  <div class="table-data-container">
+    <div class="show-data-container">
+      <div class="title-table-container"><h1>Usuarios</h1></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Nombre de usuario</th>
+            <th>Contraseña</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.email }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+            <ion-button>
+              <img src="../../assets/images/trash.svg" />
+            </ion-button>
+            <ion-button>
+              <img src="../../assets/images/trash.svg" />
+            </ion-button>
+            <input
+              type="image"
+              src="../../assets/images/trash.svg"
+              alt="Enviar formulario"
+            />
+            <input
+              type="image"
+              src="../../assets/images/edit.svg"
+              alt="Enviar formulario"
+            />
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> 
+</div>

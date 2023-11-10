@@ -1,0 +1,44 @@
+.start-container {
+    display: flex;
+}
+
+.image-container {
+    height: 100vh;
+    width: 50%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.image-button-container {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        
+        width: 165px;
+        height: 165px;
+        
+    }
+
+    h1 {
+        font-size: 80px;
+        color: black;
+
+    }
+    ion-button{
+        margin-top: 20%;
+        width: 333px;
+        height: 66px;
+        --background: #FC2020;
+        --border-radius: 20px;
+        
+    }
+}

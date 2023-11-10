@@ -14,7 +14,9 @@ export class AuthService {
 
   AUTH_SERVER_ADDRESS: string = 'http://localhost:4000';
 
-  constructor(private httpClient: HttpClient, private storage: Storage) { }
+  constructor(private httpClient: HttpClient, private storage: Storage) { 
+    this.storage.create();
+  }
 
   // async ngOnInit() {
   //   // If using a custom driver:
@@ -31,7 +33,7 @@ export class AuthService {
     let options = {
       headers: {
         'Authorization': basicAccess,
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       }
       //, withCredentials: true
     };
@@ -52,7 +54,7 @@ export class AuthService {
     );
   }
 
-  login(user: User): Observable<AuthResponse> {
+ login(user: User): Observable<AuthResponse> {
     return this.httpClient.post<AuthResponse>(`${this.AUTH_SERVER_ADDRESS}/api/users/signin`, null, this.getOptions(user)).pipe(
       tap(async (res: AuthResponse) => {
 

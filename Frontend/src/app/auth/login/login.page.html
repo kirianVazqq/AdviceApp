@@ -1,28 +1,40 @@
+<div class="login-container">
+  <div class="image-container">
+    <img src="../../../assets/images/photo-start.png" />
+  </div>
 
-<ion-content color="primary" padding>
-  <form #form="ngForm" (ngSubmit)="login(form)">
-    <ion-grid>
-      <ion-row color="primary" class="ion-justify-content-center">
-        <ion-col size-md="6" size-lg="5" size-xs="12">
-          <div>
-            <h3>Login</h3>
-          </div>
-          <div  class="ion-text-center">
-            <ion-item>
-              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
-            </ion-item>
-          </div>
-          <div  class="ion-text-center">
-            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
+  <div class="login-form-container">
+    <img src="../../../assets/icon/Icon-consultify-removebg-preview.png" />
+    <div>
+      <h1>Inicio</h1>
+    </div>
+    <form #form="ngForm" (ngSubmit)="login(form)">
+      <div class="ion-text-center">
+        <ion-item>
+          <ion-input
+            name="username"
+            placeholder="Usuario"
+            ngModel
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            name="password"
+            type="password"
+            placeholder="Contraseña"
+            ngModel
+            required
+          ></ion-input>
+        </ion-item>
+      </div>
+      <div class="ion-text-center">
+        <ion-button type="submit" [disabled]="form.invalid" expand="block"
+          >Inicio de sesión</ion-button
+        >
+      </div>
 
-      </ion-row>
-    </ion-grid>
-  </form>
-</ion-content>
+      <ion-row> </ion-row>
+    </form>
+  </div>
+</div>
