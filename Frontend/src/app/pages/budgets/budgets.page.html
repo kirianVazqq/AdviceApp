@@ -8,66 +8,79 @@
       </header>
     </section>
     <section class="budgets-info-container">
-      <div class="budget-info">
-        <p>1</p>
-        <p>Juan Martín</p>
-        <p>10/10</p>
-        <p>Seguro Coche</p>
-        <div>
-        <img src="../../../assets/images/edit.svg" />
-        <img src="../../../assets/images/trash.svg" />
-      </div>
-      </div>
-      <div class="budget-info">
-        <p>1</p>
-        <p>Juan Martín</p>
-        <p>10/10</p>
-        <p>Seguro Coche</p>
-        <div>
-        <img src="../../../assets/images/edit.svg" />
-        <img src="../../../assets/images/trash.svg" />
-      </div>
-      </div>
-      <div class="budget-info">
-        <p>1</p>
-        <p>Juan Martín</p>
-        <p>10/10</p>
-        <p>Seguro Coche</p>
-        <div>
-        <img src="../../../assets/images/edit.svg" />
-        <img src="../../../assets/images/trash.svg" />
-      </div>
-      </div>
-      <div class="budget-info">
-        <p>1</p>
-        <p>Juan Martín</p>
-        <p>10/10</p>
-        <p>Seguro Coche</p>
-        <div>
-        <img src="../../../assets/images/edit.svg" />
-        <img src="../../../assets/images/trash.svg" />
-      </div>
-      </div>
-      <div class="budget-info">
-        <p>1</p>
-        <p>Juan Martín</p>
-        <p>10/10</p>
-        <p>Seguro Coche</p>
-        <div>
-        <img src="../../../assets/images/edit.svg" />
-        <img src="../../../assets/images/trash.svg" />
-      </div>
-      </div>
-      <div class="budget-info">
-        <p>1</p>
-        <p>Juan Martín</p>
-        <p>10/10</p>
-        <p>Seguro Coche</p>
-        <div>
-        <img src="../../../assets/images/edit.svg" />
-        <img src="../../../assets/images/trash.svg" />
-      </div>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Nombre de usuario</th>
+            <th>Contraseña</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let budget of budgets">
+            <td>{{ budget.brand }}</td>
+            <td>{{ budget.model }}</td>
+            <td>{{ budget.horsepower }}</td>
+            <ion-button>
+              <img src="../../assets/images/trash.svg" />
+            </ion-button>
+            <ion-button>
+              <img src="../../assets/images/trash.svg" />
+            </ion-button>
+            <input
+              type="image"
+              src="../../assets/images/trash.svg"
+              alt="Enviar formulario"
+            />
+            <input
+              type="image"
+              src="../../assets/images/edit.svg"
+              alt="Enviar formulario"
+            />
+          </tr>
+        </tbody>
+      </table>
     </section>
   </div>
 </div>
+
+<!-- //-------------------------------------------------------------------------// -->
+<!-- <div class="table-data-container">
+  <div class="show-data-container">
+    <div class="title-table-container"><h1>Usuarios</h1></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Nombre de usuario</th>
+          <th>Contraseña</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let budget of budgets">
+          <td>{{ budget.brand }}</td>
+          <td>{{ budget.model }}</td>
+          <td>{{ budget.horsepower }}</td>
+          <ion-button>
+            <img src="../../assets/images/trash.svg" />
+          </ion-button>
+          <ion-button>
+            <img src="../../assets/images/trash.svg" />
+          </ion-button>
+          <input
+            type="image"
+            src="../../assets/images/trash.svg"
+            alt="Enviar formulario"
+          />
+          <input
+            type="image"
+            src="../../assets/images/edit.svg"
+            alt="Enviar formulario"
+          />
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
