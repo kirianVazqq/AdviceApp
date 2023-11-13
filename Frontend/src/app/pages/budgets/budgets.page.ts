@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { BudgetService } from 'src/app/services/budget.service';
 import { UserService } from 'src/app/services/user.service';
-
+import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-budgets',
   templateUrl: './budgets.page.html',
@@ -13,14 +13,21 @@ export class BudgetsPage implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private budgetService: BudgetService
-  ) {}
+    private budgetService: BudgetService,
+    private storage: Storage
+  ) {
+    this.init();
+  }
   budgets: any[] = [];
+  async init() {
+    await this.storage.create();
+  }
+
   ngOnInit() {
     this.getBudget();
   }
-  getBudget() {
-    const token = localStorage.getItem('token');
+  async getBudget() {
+    const token = await this.storage.get('token');
     if (token === null) {
       console.error('Token no encontrado');
       return;
@@ -30,7 +37,7 @@ export class BudgetsPage implements OnInit {
         this.budgets = data;
       },
       (error) => {
-        console.error('Error al obtener los usuarios', error);
+        console.error('Error al obtener los presupuestos', error);
       }
     );
   }
