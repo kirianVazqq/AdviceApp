@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { BudgetService } from 'src/app/services/budget.service';
-import { UserService } from 'src/app/services/user.service';
 import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-budgets',
