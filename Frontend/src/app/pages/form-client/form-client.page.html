@@ -7,28 +7,48 @@
       <ion-button id="button-add-photo">Añadir foto</ion-button>
       <ion-button id="button-delete-photo">Borrar cliente</ion-button>
     </div>
+    <form [formGroup]="formClient">
     <div class="form-inputs-container">
       <ion-item>
-        <ion-input placeholder="Nombre" />
+        <ion-input 
+        formControlName="name"
+        type="text"
+        placeholder="Nombre" />
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Apellidos" />
+        <ion-input 
+        formControlName="lastName"
+        type="text"
+        placeholder="Apellidos" />
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Direccion" />
+        <ion-input       
+        formControlName="address"
+        type="text"
+        placeholder="Direccion" />
       </ion-item>
       <div class="form-dni-phone-container">
         <ion-item class="dni-container">
-          <ion-input placeholder="Dni" />
+          <ion-input 
+          formControlName="dni"
+          type="text"
+          placeholder="Dni" />
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Telefono" />
+          <ion-input 
+          formControlName="phoneNumber"
+          type="text"
+          placeholder="Telefono" />
         </ion-item>
       </div>
       <ion-item>
-        <ion-input placeholder="Correo" />
+        <ion-input 
+        formControlName="email"
+        type="text"
+        placeholder="Correo" />
       </ion-item>
     </div>
+  </form>
     <ion-button id="button-save">Guardar</ion-button>
   </div>
 </div>

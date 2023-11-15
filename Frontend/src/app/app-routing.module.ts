@@ -35,6 +35,11 @@ const routes: Routes = [
     path: 'budgets',
     loadChildren: () => import('./pages/budgets/budgets.module').then( m => m.BudgetsPageModule)
   },
+  {
+    path: 'form-budget',
+    loadChildren: () => import('./pages/form-budget/form-budget.module').then( m => m.FormBudgetPageModule)
+  },
+
 
 
 

@@ -42,6 +42,7 @@ exports.create = (req, res) => {
         // get basic user details
         const userObj = utils.getCleanUser(data);
         // return the token along with user details
+
         return res.json({ user: userObj, access_token: token });
       })
       .catch(err => {
@@ -94,7 +95,6 @@ User.findByPk(id)
 // Update a User by the id in the request
 exports.update = (req, res) => {
 const id = req.params.id;
-
 User.update(req.body, {
   where: { id: id }
 })

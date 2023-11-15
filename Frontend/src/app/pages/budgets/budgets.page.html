@@ -19,25 +19,17 @@
   
         <tbody>
           <tr *ngFor="let budget of budgets">
+            <td>{{ budget.userId }}</td>
             <td>{{ budget.brand }}</td>
             <td>{{ budget.model }}</td>
             <td>{{ budget.horsepower }}</td>
-            <ion-button>
-              <img src="../../assets/images/trash.svg" />
+            <ion-button (click)="addInForm(budget, budget.id)">
+              <ion-icon name="create-outline"></ion-icon>
             </ion-button>
-            <ion-button>
-              <img src="../../assets/images/trash.svg" />
+            <ion-button (click)="deleteBudget(budget.id)">
+              <ion-icon  name="trash-outline"></ion-icon>
             </ion-button>
-            <input
-              type="image"
-              src="../../assets/images/trash.svg"
-              alt="Enviar formulario"
-            />
-            <input
-              type="image"
-              src="../../assets/images/edit.svg"
-              alt="Enviar formulario"
-            />
+
           </tr>
         </tbody>
       </table>

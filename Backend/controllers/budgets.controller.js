@@ -1,7 +1,7 @@
 const db = require("../models");
 const Budget = db.Budget
 const Op = db.Sequelize.Op;
-
+const jwt = require('jsonwebtoken');
 // Create and Save a new budget
 exports.create = (req, res) => {
   // Validate request

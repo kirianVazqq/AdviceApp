@@ -1,0 +1,82 @@
+.budget-container {
+    display: flex;
+
+
+}
+
+.form-budget-container {
+    width: 80%;
+    height: 90vh;
+    margin: auto;
+    background: #F0F0F0;
+
+}
+
+
+#button-add-photo {
+    --background: #FC2020;
+    --border-radius: 10px;
+    width: 224px;
+    height: 52px;
+}
+
+#button-delete-photo {
+    --background: white;
+    --color: black;
+    --border-radius: 10px;
+    width: 224px;
+    height: 52px;
+}
+
+.header-budget-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+#button-save {
+    --background: #FC2020;
+    width: 224px;
+    height: 52px;
+    --border-radius: 10px;
+}
+
+.form-inputs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.form-inputs-container ion-item {
+    border: 1px solid black;
+    margin: 20px;
+    width: 400px;
+    height: 48px;
+    border-radius: 20px;
+    --background: white;
+    width: 906px;
+    height: 52px;
+
+}
+
+.form-inputs-container ion-input {
+    --color: black;
+    font-size: 22px;
+    width: 906px;
+    height: 52px;
+    width: 906px;
+    height: 52px;
+}
+.form-dni-phone-container{
+    
+}
+.dni-container{
+    ion-item{
+        width: 313px;
+        height: 52px;
+    }
+ 
+}

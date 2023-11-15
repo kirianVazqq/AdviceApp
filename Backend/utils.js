@@ -12,8 +12,9 @@ function generateToken(user) {
     email: user.email,
     username: user.username,
     isAdmin: user.isAdmin,
-    password: user.password,
+    password: user.password
   };
+  jwt.decode()
 
   // .env should contain a line like JWT_SECRET=V3RY#1MP0RT@NT$3CR3T#
   return jwt.sign(u, process.env.JWT_SECRET, {
