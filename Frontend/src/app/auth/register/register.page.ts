@@ -124,8 +124,8 @@ export class RegisterPage implements OnInit {
     this.userService.editUser(userId, userToUpdate, token).subscribe(
       (response) => {
         console.log('Usuario actualizado exitosamente', response);
-      this.getUsers();
-      this.formRegister.reset();
+        this.getUsers();
+        this.formRegister.reset();
       },
       (error) => {
         console.error('Error al actualizar el usuario', error);

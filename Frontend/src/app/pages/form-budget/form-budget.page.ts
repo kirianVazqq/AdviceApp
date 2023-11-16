@@ -15,7 +15,8 @@ export class FormBudgetPage implements OnInit {
     private storage: Storage
   ) {}
 
-  ngOnInit() {
+   ngOnInit() {
+     this.storage.create();
     this.formBudget = this.formBuilder.group({
       userId: ['', Validators.required],
       name: ['', Validators.required],

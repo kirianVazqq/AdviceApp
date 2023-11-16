@@ -1,97 +1,112 @@
-<div class="budget-container">
+<div class="budget-container" class="sm:flex">
   <app-navbar />
-  <div class="form-budget-container">
+  <div class="w-3/4 h-5/6 bg-custom-gray m-auto form-budget-container">
     <form [formGroup]="formBudget">
-      <div class="form-inputs-container">
-        <ion-item>
+      <div class="bg-custom-gray form-inputs-container">
+        <!-- <ion-item class="bg-custom-gray"> -->
           <ion-input
+            class="text-black  rounded-2xl "
             formControlName="userId"
             type="text"
             placeholder="Id Usuario"
           ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input
-            formControlName="name"
+        <!-- </ion-item> -->
+        <div class="flex justify-between">
+          <div class="flex justify-center flex-col w-full">
+            <!-- <ion-item> -->
+              <ion-input
+                class="text-black rounded-2xl"
+                formControlName="name"
+                type="text"
+                placeholder="Nombre"
+              ></ion-input>
+            <!-- </ion-item> -->
+            <ion-button>COCHE</ion-button>
+          </div>
+          <div class="flex justify-center flex-col w-full">
+            <!-- <ion-item> -->
+              <ion-input
+                class="text-black rounded-2xl"
+                formControlName="lastName"
+                type="text"
+                placeholder="Apellidos"
+              ></ion-input>
+            <!-- </ion-item> -->
+
+            <ion-button>MOTO</ion-button>
+          </div>
+        </div>
+        <!-- <ion-item> -->
+           <ion-input class="text-black rounded-2xl"
+            formControlName="typeVehicle"
             type="text"
-            placeholder="Nombre"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
+            placeholder="Tipo de Vehículo"
+          ></ion-input> 
+        <!-- </ion-item> -->
+        <!-- <ion-item> -->
           <ion-input
-            formControlName="lastName"
-            type="text"
-            placeholder="Apellidos"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input
+            class="text-black rounded-2xl"
             formControlName="typeBudget"
             type="text"
-            placeholder="Tipo de presupuesto"
+            placeholder="Tipo de presupuesto rounded-2xl"
           ></ion-input>
-        </ion-item>
-        <!-- <ion-item>
-          <ion-label>Tipo de Vehículo</ion-label>
-          <ion-button  >Coche</ion-button>
-          <ion-button  >Moto</ion-button>
-        </ion-item> -->
-        <ion-item>
+        <!-- </ion-item> -->
           <ion-input
+            class="text-black rounded-2xl"
             formControlName="brand"
             type="text"
             placeholder="Marca"
           ></ion-input>
-        </ion-item>
-        <ion-item>
+        <!-- </ion-item> -->
+        <!-- <ion-item> -->
           <ion-input
+            class="text-black rounded-2xl"
             formControlName="model"
             type="text"
             placeholder="Modelo"
           ></ion-input>
-        </ion-item>
-        <ion-item>
+        <!-- </ion-item> -->
+        <!-- <ion-item> -->
           <ion-input
+            class="text-black rounded-2xl"
             formControlName="tuition"
             type="text"
             placeholder="Matrícula"
           ></ion-input>
-        </ion-item>
-        <ion-item>
+        <!-- </ion-item> -->
+        <!-- <ion-item> -->
           <ion-input
+            class="text-black rounded-2xl"
             formControlName="kilometers"
             type="number"
             placeholder="Kilómetros"
           ></ion-input>
-        </ion-item>
-        <ion-item>
+        <!-- </ion-item> -->
+        <!-- <ion-item> -->
           <ion-input
+            class="text-black rounded-2xl"
             formControlName="horsepower"
             type="number"
             placeholder="Caballos de Fuerza"
           ></ion-input>
-        </ion-item>
-        <ion-item>
+        <!-- </ion-item> -->
+
+        <!-- <ion-item> -->
           <ion-input
-            formControlName="typeVehicle"
-            type="text"
-            placeholder="Tipo de Vehículo"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input
+            class="text-black rounded-2xl"
             formControlName="insuranceName"
             type="text"
             placeholder="Nombre del Seguro"
           ></ion-input>
-        </ion-item>
-        <ion-item>
+        <!-- </ion-item> -->
+        <!-- <ion-item> -->
           <ion-input
+            class="text-black rounded-2xl"
             formControlName="price"
             type="number"
             placeholder="Precio"
           ></ion-input>
-        </ion-item>
+        <!-- </ion-item> -->
       </div>
     </form>
 
