@@ -27,14 +27,14 @@ const db = require("./models");
 // db.sequelize.sync();
 
 // Development only. Drops and re-sync db everytime the server starts.
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});
+// db.sequelize.sync({ force: true }).then(() => {
+//   console.log("Drop and re-sync db.");
+// });
 
 // // crear sin borrar
-// db.sequelize.sync().then(() => {
-//   console.log("Sync db without dropping.");
-// });
+db.sequelize.sync().then(() => {
+  console.log("Sync db without dropping.");
+});
 
 //middleware that checks if JWT token exists and verifies it if it does exist.
 //In all future routes, this helps to know if the request is authenticated or not.
