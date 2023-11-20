@@ -33,6 +33,9 @@ Object.keys(db).forEach(modelName => {
 });
 
 db.Budget = require("./budgets.model")(sequelize,Sequelize)
+db.Note = require("./note.model")(sequelize,Sequelize)
+db.Client = require("./client.model")(sequelize,Sequelize)
+db.Adviser = require("./adviser.model")(sequelize,Sequelize)
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
