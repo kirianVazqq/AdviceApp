@@ -1,22 +1,132 @@
 <div class="budgets-container">
   <app-navbar />
-  <div class="info-budget-container">
-    <section class="info-budgets-section">
-      <header class="title-searchbar-header">
-        <h1>Presupuestos</h1>
-        <ion-searchbar placeholder="Buscar clientes"></ion-searchbar>
-      </header>
-    </section>
-    <section class="budgets-info-container">
+  <div class="budgets-content">
+    <div class="budgets-form">
+      <div class="image-container">
+        <img src="../../assets/icon/Icon-consultify-removebg-preview.png" />
+      </div>
+      <h1>Formulario</h1>
+      <form [formGroup]="formBudget">
+        <div class="form-inputs-container">
+          <!-- <ion-item>
+            <ion-input
+              formControlName="userId"
+              type="text"
+              placeholder="Id Usuario"
+            ></ion-input>
+          </ion-item> -->
+          <div class="first-row-form">
+            <ion-item>
+              <ion-input
+                formControlName="name"
+                type="text"
+                placeholder="Nombre"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="lastName"
+                type="text"
+                placeholder="Apellidos"
+              ></ion-input>
+            </ion-item>
+          </div>
+          <div class="second-row-form">
+            <ion-item>
+              <ion-input
+                formControlName="brand"
+                type="text"
+                placeholder="Marca"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="model"
+                type="text"
+                placeholder="Modelo"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="tuition"
+                type="text"
+                placeholder="Matrícula"
+              ></ion-input>
+            </ion-item>
+          </div>
+          <div class="third-row-form">
+            <ion-item>
+              <ion-input
+                formControlName="kilometers"
+                type="number"
+                placeholder="Kilómetros"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="horsepower"
+                type="number"
+                placeholder="Caballos de Fuerza"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input
+                formControlName="insuranceName"
+                type="text"
+                placeholder="Nombre del Seguro"
+              ></ion-input>
+            </ion-item>
+          </div>
+          <div class="fourth-row-form">
+            <div class="ionList-container">
+              <ion-list>
+                <ion-select formControlName="selectedTypeBudget" interface="popover" placeholder="Seguro">
+                  <ion-select-option value="car">Coche</ion-select-option>
+                  <ion-select-option value="motorbike">Moto</ion-select-option>
+                </ion-select>
+              </ion-list>
+              <ion-list>
+                <ion-select formControlName="selectedTypeVehicle" interface="popover" placeholder="Combustible">
+                  <ion-select-option value="Gasoline"
+                    >Gasolina</ion-select-option
+                  >
+                  <ion-select-option value="Diesel">Gasoil</ion-select-option>
+                  <ion-select-option value="Electric"
+                    >Eléctrico</ion-select-option
+                  >
+                  <ion-select-option value="Hybrid">Híbrido</ion-select-option>
+                </ion-select>
+              </ion-list>
+            </div>
+            <ion-item>
+              <ion-input
+                formControlName="price"
+                type="number"
+                placeholder="Precio"
+              ></ion-input>
+            </ion-item>
+          </div>
+        </div>
+        <div class="button-container">
+          <ion-button (click)="addBudget()" id="button-save"
+            >Guardar</ion-button
+          >
+        </div>
+      </form>
+    </div>
+
+    <div class="budgets-list">
+      <p>Lista</p>
       <table>
         <thead>
           <tr>
             <th>Email</th>
             <th>Nombre de usuario</th>
-            <th>Contraseña</th>
+            <th>Admin</th>
           </tr>
         </thead>
-  
+
         <tbody>
           <tr *ngFor="let budget of budgets">
             <td>{{ budget.userId }}</td>
@@ -27,52 +137,11 @@
               <ion-icon name="create-outline"></ion-icon>
             </ion-button>
             <ion-button (click)="deleteBudget(budget.id)">
-              <ion-icon  name="trash-outline"></ion-icon>
+              <ion-icon name="trash-outline"></ion-icon>
             </ion-button>
-
           </tr>
         </tbody>
       </table>
-    </section>
+    </div>
   </div>
 </div>
-
-<!-- //-------------------------------------------------------------------------// -->
-<!-- <div class="table-data-container">
-  <div class="show-data-container">
-    <div class="title-table-container"><h1>Usuarios</h1></div>
-    <table>
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>Nombre de usuario</th>
-          <th>Contraseña</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let budget of budgets">
-          <td>{{ budget.brand }}</td>
-          <td>{{ budget.model }}</td>
-          <td>{{ budget.horsepower }}</td>
-          <ion-button>
-            <img src="../../assets/images/trash.svg" />
-          </ion-button>
-          <ion-button>
-            <img src="../../assets/images/trash.svg" />
-          </ion-button>
-          <input
-            type="image"
-            src="../../assets/images/trash.svg"
-            alt="Enviar formulario"
-          />
-          <input
-            type="image"
-            src="../../assets/images/edit.svg"
-            alt="Enviar formulario"
-          />
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div> -->

@@ -4,17 +4,20 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { BudgetService } from 'src/app/services/budget.service';
 import { Storage } from '@ionic/storage-angular';
 import { jwtDecode } from 'jwt-decode';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-budgets',
   templateUrl: './budgets.page.html',
   styleUrls: ['./budgets.page.scss'],
 })
 export class BudgetsPage implements OnInit {
+  formBudget!: FormGroup;
   constructor(
     private router: Router,
     private authService: AuthService,
-    private budgetService: BudgetService,
-    private storage: Storage
+    private storage: Storage,
+    private formBuilder: FormBuilder,
+    private budgetService: BudgetService
   ) {
     this.init();
   }
@@ -25,6 +28,21 @@ export class BudgetsPage implements OnInit {
   }
 
   ngOnInit() {
+    this.storage.create();
+    this.formBudget = this.formBuilder.group({
+      userId: ['', Validators.required],
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      brand: ['', Validators.required],
+      model: ['', Validators.required],
+      tuition: ['', Validators.required],
+      kilometers: ['', [Validators.required, Validators.min(0)]],
+      horsepower: ['', [Validators.required, Validators.min(0)]],
+      insuranceName: ['', Validators.required],
+      price: ['', [Validators.required, Validators.min(0)]],
+      selectedTypeBudget: ['',Validators.required],
+      selectedTypeVehicle: ['',Validators.required],
+    });
     this.getBudgetByUser();
   }
   async getBudget() {
@@ -62,9 +80,7 @@ export class BudgetsPage implements OnInit {
       }
     );
   }
-  addInForm(budget:any, id:number){
-
-  }
+  addInForm(budget: any, id: number) {}
 
   async deleteBudget(budgetId: number) {
     const token = await this.storage.get('token');
@@ -81,6 +97,29 @@ export class BudgetsPage implements OnInit {
     } else {
       console.error('Token no encontrado');
     }
+  }
+
+  async addBudget() {
+    if (this.formBudget.invalid) {
+      console.error('El formulario no es válido');
+      return;
+    }
+    let budget = this.formBudget.value;
+    const token = await this.storage.get('token');
+    if (token === null) {
+      console.error('Token no encontrado');
+      return;
+    }
+
+    this.budgetService.addBudget(budget, token).subscribe(
+      (res) => {
+        console.log('Presupuesto creado', res);
+        this.formBudget.reset();
+      },
+      (error) => {
+        console.error('Error al crear el presupuesto', error);
+      }
+    );
   }
 
   // async addInForm(user: any, id: number) {
@@ -131,6 +170,4 @@ export class BudgetsPage implements OnInit {
   //     }
   //   );
   // }
-
-
 }
