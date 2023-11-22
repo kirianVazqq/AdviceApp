@@ -19,7 +19,7 @@ export class BudgetsPage implements OnInit {
     this.init();
   }
   budgets: any[] = [];
-
+  flag: boolean = true;
   async init() {
     await this.storage.create();
   }
@@ -52,7 +52,6 @@ export class BudgetsPage implements OnInit {
 
     const decoded = jwtDecode(token) as any; // Aquí estás diciendo que decoded puede ser de cualquier tipo
     const userId = decoded.id; // TypeScript ya no se quejará porque usamos 'any'
-    console.log(userId);
     this.budgetService.getBudgetsByUser(token, userId).subscribe(
       (data: any) => {
         this.budgets = data;
@@ -62,8 +61,16 @@ export class BudgetsPage implements OnInit {
       }
     );
   }
-  addInForm(budget:any, id:number){
 
+  addInForm(budget: any) {
+    const navigationExtras = {
+      state: {
+
+        flag: this.flag,
+        budget: budget,
+      },
+    };
+    this.router.navigate(['/form-budget'], navigationExtras);
   }
 
   async deleteBudget(budgetId: number) {
@@ -131,6 +138,4 @@ export class BudgetsPage implements OnInit {
   //     }
   //   );
   // }
-
-
 }

@@ -3,13 +3,13 @@
   <div class="form-budget-container">
     <form [formGroup]="formBudget">
       <div class="form-inputs-container">
-        <!-- <ion-item>
+        <ion-item>
           <ion-input
             formControlName="userId"
             type="text"
             placeholder="Id Usuario"
           ></ion-input>
-        </ion-item> -->
+        </ion-item>
         <ion-item>
           <ion-input
             formControlName="name"
@@ -95,6 +95,6 @@
       </div>
     </form>
 
-    <ion-button (click)="addBudget()" id="button-save">Guardar</ion-button>
+    <ion-button (click)="editingForm ? editBudget() : addBudget()" id="button-save"> {{ editingForm ? 'Editar' : 'Guardar' }}</ion-button>
   </div>
 </div>

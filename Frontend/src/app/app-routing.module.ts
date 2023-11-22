@@ -39,6 +39,18 @@ const routes: Routes = [
     path: 'form-budget',
     loadChildren: () => import('./pages/form-budget/form-budget.module').then( m => m.FormBudgetPageModule)
   },
+  {
+    path: 'form-budget/:flag/:budget',
+    loadChildren: () => import('./pages/form-budget/form-budget.module').then( m => m.FormBudgetPageModule)
+  },
+  {
+    path: 'client',
+    loadChildren: () => import('./pages/client/client.module').then( m => m.ClientPageModule)
+  },
+  {
+    path: 'form-client/:flag/:client',
+    loadChildren: () => import('./pages/form-client/form-client.module').then( m => m.FormClientPageModule)
+  },
 
 
 

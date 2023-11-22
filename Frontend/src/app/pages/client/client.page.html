@@ -3,7 +3,7 @@
   <div class="info-budget-container">
     <section class="info-budgets-section">
       <header class="title-searchbar-header">
-        <h1>Presupuestos</h1>
+        <h1>Clientes</h1>
         <ion-searchbar placeholder="Buscar clientes"></ion-searchbar>
       </header>
     </section>
@@ -11,25 +11,25 @@
       <table>
         <thead>
           <tr>
-            <th>Id usuario</th>
+            <th>Id cliente</th>
             <th>Nombre</th>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Potencia</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+            <th>Numero de cuenta</th>
           </tr>
         </thead>
   
         <tbody>
-          <tr *ngFor="let budget of budgets">
-            <td>{{ budget.userId }}</td>
-            <td>{{ budget.name }}</td>
-            <td>{{ budget.brand }}</td>
-            <td>{{ budget.model }}</td>
-            <td>{{ budget.horsepower }}</td>
-            <ion-button (click)="addInForm( budget)">
+          <tr *ngFor="let client of clients">
+            <td>{{ client.id }}</td>
+            <td>{{ client.name }}</td>
+            <td>{{ client.lastName }}</td>
+            <td>{{ client.dni }}</td>
+            <td>{{ client.numberAccount }}</td>
+            <ion-button (click)="addInForm( client)">
               <ion-icon name="create-outline"></ion-icon>
             </ion-button>
-            <ion-button (click)="deleteBudget(budget.id)">
+            <ion-button (click)="deleteClient(client.id)">
               <ion-icon  name="trash-outline"></ion-icon>
             </ion-button>
 

@@ -18,6 +18,8 @@ exports.create = (req, res) => {
     name: req.body.name,
     lastName: req.body.lastName,
     dni: req.body.dni,
+    address: req.body.address,
+    email: req.body.email,
     numberAccount: req.body.numberAccount,
 
   };

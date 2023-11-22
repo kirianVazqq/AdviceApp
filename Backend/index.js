@@ -31,7 +31,7 @@ const db = require("./models");
 //   console.log("Drop and re-sync db.");
 // });
 
-// // crear sin borrar
+// crear sin borrar
 db.sequelize.sync().then(() => {
   console.log("Sync db without dropping.");
 });

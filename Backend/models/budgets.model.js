@@ -28,6 +28,12 @@ module.exports = (sequelize, Sequelize) => {
       tuition: {
         type: Sequelize.STRING
       },
+      kilometers: {
+        type: Sequelize.INTEGER
+      },
+      horsepower: {
+        type: Sequelize.INTEGER
+      },
       typeVehicle: {
         type: Sequelize.STRING
       },
@@ -35,7 +41,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       price: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
     });
   
