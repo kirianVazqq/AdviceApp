@@ -51,6 +51,11 @@ const routes: Routes = [
     path: 'form-client/:flag/:client',
     loadChildren: () => import('./pages/form-client/form-client.module').then( m => m.FormClientPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+
 
 
 

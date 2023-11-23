@@ -1,0 +1,59 @@
+<div class="profile-container">
+  <app-navbar />
+  <div class="info-profile-container">
+    <div class="top-profile-container">
+      <img
+        src="../../../assets/icon/user-photo-icon.svg"
+        alt="profile"
+        class="profile-img"
+      />
+
+      <div class="profile-mail-container">
+        <h2>Perfil</h2>
+        <div class="mail-container">
+          <p>Correo</p>
+          <p>Manolitoagmail.es</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-profile-container">
+      <div class="card-container">
+        <ion-card>
+          <ion-card-header>
+            <img src="../../../assets/icon/client-profile-icon.svg" />
+          </ion-card-header>
+          <ion-card-content> Clientes </ion-card-content>
+          <ion-card-content> 2 </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <img src="../../../assets/icon/budgets-profile-icon.svg" />
+          </ion-card-header>
+          <ion-card-content> Clientes </ion-card-content>
+          <ion-card-content> 1 </ion-card-content>
+        </ion-card>
+      </div>
+      <div class="note-container">
+        <form [formGroup]="formNote" class="note-input-container">
+          <ion-input
+            formControlName="note"
+            placeholder="Añade tu nota"
+          ></ion-input>
+          <ion-button (click)="addNote()"
+            ><ion-icon name="save"></ion-icon
+          ></ion-button>
+        </form>
+        <h2>Notas</h2>
+        <div class="note-line-container">
+          <div *ngFor="let notes of note">
+            <p>{{ notes.info }}</p>
+            <ion-button (click)="deleteNote(notes.id)"
+              ><ion-icon name="trash"></ion-icon
+            ></ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

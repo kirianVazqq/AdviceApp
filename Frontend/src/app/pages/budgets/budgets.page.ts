@@ -89,6 +89,9 @@ export class BudgetsPage implements OnInit {
       console.error('Token no encontrado');
     }
   }
+  goToBudgetsForm(){
+    this.router.navigate(['/form-budget']);
+  }
 
   // async addInForm(user: any, id: number) {
   //   this.editButtonPressed = true;

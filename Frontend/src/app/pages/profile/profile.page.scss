@@ -1,0 +1,117 @@
+.profile-container {
+    display: flex;
+    .info-profile-container{
+        width: 100%;
+
+
+    }
+}
+
+.top-profile-container {
+    display: flex;
+    color: black;
+    margin-top: 30px;
+    margin-left:70px;
+
+    .profile-mail-container {
+        margin-left:30px;
+    }
+
+    .mail-container {
+
+        width: 400px;
+        display: flex;
+        justify-content: space-around;
+        background: #FFFCFC;
+        border: 6px solid #F0F0F0;
+        border-radius: 15px;
+
+    }
+}
+
+
+
+
+
+
+.bottom-profile-container {
+    display: flex;
+    width:100%;
+    margin-left:70px;
+    margin-top:40px; 
+   justify-content: space-between;
+    .card-container {
+        display: flex;
+        width: 600px;
+        height: 200px;
+        justify-content: space-around;
+        ion-card {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            background: #F0F0F0;
+           
+
+            ion-card-header {
+                background: #FCD6D6;
+                border-radius: 15px;
+                margin: 7px;
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    margin: auto;
+                }
+            }
+
+        }
+
+    }
+
+
+
+
+    .note-container {
+        color: black;
+        width: 500px;
+        height: 500px;
+        background: #F0F0F0;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin:auto;
+        .note-line-container{
+           
+   
+            width: 80%;
+            height: 100%;
+            border-radius: 15px;
+            max-height: 330px; 
+            overflow-y: auto; 
+            p{
+                padding: 10px;
+                border-radius: 15px;
+                background: white;
+                margin:20px;
+            }
+        }
+        .note-input-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+            width: 90%;
+
+            ion-input {
+                width: 80%;
+                background-color: white;
+                border-radius: 15px;
+            }
+
+            ion-button {
+                --background: #FC2020;
+                margin-left: 15px;
+            }
+        }
+    }
+}

@@ -32,10 +32,32 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+db.User = require("./user.model")(sequelize,Sequelize)
 db.Budget = require("./budgets.model")(sequelize,Sequelize)
 db.Note = require("./note.model")(sequelize,Sequelize)
 db.Client = require("./client.model")(sequelize,Sequelize)
 db.Adviser = require("./adviser.model")(sequelize,Sequelize)
+db.user.hasMany(db.Budget);
+db.Budget.belongsTo(db.user, {
+  onDelete: "CASCADE",
+  foreignKey: "userId"
+});
+db.user.hasMany(db.Note);
+db.Note.belongsTo(db.user, {
+  onDelete: "CASCADE",
+  foreignKey: "userId"
+});
+db.user.hasMany(db.Client);
+db.Client.belongsTo(db.user, {
+  onDelete: "CASCADE",
+  foreignKey: "userId"
+});
+db.user.hasMany(db.Adviser);
+db.Adviser.belongsTo(db.user, {
+  onDelete: "CASCADE",
+  foreignKey: "userId"
+});
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
