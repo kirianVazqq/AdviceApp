@@ -6,8 +6,7 @@
     <div class="title-form-container">
       <h1>Crear usuario</h1>
     </div>
-    <form [formGroup]="formRegister" >
-      <!-- <div text-center></div> -->
+    <form [formGroup]="formRegister">
       <div>
         <ion-item class="input-container">
           <ion-input
@@ -38,20 +37,18 @@
           ></ion-input>
         </ion-item>
       </div>
-      <!-- <ion-checkbox class="checkbox-container" labelPlacement="end"
-        ><p>Admin</p></ion-checkbox -->
-      >
+      <ion-checkbox formControlName="isAdmin" class="checkbox-container" labelPlacement="end">
+        <p>Admin</p>
+      </ion-checkbox>
 
       <div>
         <ion-button
-        (click)="editButtonPressed ? editUser() : register()"
+          (click)="editButtonPressed ? editUser() : register()"
           [disabled]="formRegister.invalid"
-          
         >
-        {{ editButtonPressed ? 'Editar' : 'Register' }}
+          {{ editButtonPressed ? 'Editar' : 'Register' }}
         </ion-button>
       </div>
-
     </form>
   </div>
 
@@ -77,7 +74,7 @@
               <ion-icon name="create-outline"></ion-icon>
             </ion-button>
             <ion-button (click)="deleteUser(user.id)">
-              <ion-icon  name="trash-outline"></ion-icon>
+              <ion-icon name="trash-outline"></ion-icon>
             </ion-button>
           </tr>
         </tbody>

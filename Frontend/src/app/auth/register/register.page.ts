@@ -35,6 +35,7 @@ export class RegisterPage implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirm: ['', Validators.required],
+      isAdmin: [false]
     });
   }
 
@@ -54,9 +55,10 @@ export class RegisterPage implements OnInit {
       username: this.formRegister.get('username')?.value,
       email: this.formRegister.get('email')?.value,
       password: this.formRegister.get('password')?.value,
-      isAdmin: false, // Ajusta según sea necesario
+      isAdmin: this.formRegister.get('isAdmin')?.value,
+      
     };
-
+    console.log(user.isAdmin)
     this.authService.register(user).subscribe(
       (res) => {
         console.log('Usuario creado', res);
