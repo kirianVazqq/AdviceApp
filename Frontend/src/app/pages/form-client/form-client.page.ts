@@ -21,13 +21,15 @@ export class FormClientPage implements OnInit {
   ngOnInit() {
     this.storage.create();
     this.formClient = this.formBuilder.group({
+      userId: ['', Validators.required],
       name: ['', Validators.required],
-      lastName: ['', [Validators.required, Validators.email]],
-      address: ['', [Validators.required]],
+      lastName: ['', Validators.required],
+      address: ['', Validators.required],
       dni: ['', Validators.required],
       phoneNumber: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],  // Corregir aquí
     });
+    
     const state = this.router.getCurrentNavigation()?.extras.state;
 
     if (state && state['flag'] && state['client']) {
@@ -66,6 +68,7 @@ export class FormClientPage implements OnInit {
   }
   async addInForm() {
     this.formClient.patchValue({
+      userId: this.client.userId,
       name: this.client.name,
       lastName: this.client.lastName,
       address: this.client.address,
@@ -76,7 +79,7 @@ export class FormClientPage implements OnInit {
 
     });
   }
-  async editBudget() {
+  async editClient() {
     if (!this.formClient.valid) {
       console.error('El formulario no es válido');
       return;

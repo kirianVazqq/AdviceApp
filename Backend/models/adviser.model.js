@@ -17,6 +17,9 @@ module.exports = (sequelize, Sequelize) => {
       dni: {
         type: Sequelize.STRING,
       },
+      filename: {
+        type: Sequelize.STRING
+      }
   
     });
   

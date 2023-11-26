@@ -18,6 +18,7 @@ exports.create = (req, res) => {
     name: req.body.name,
     lastName: req.body.lastName,
     dni: req.body.dni,
+    filename: req.file ? req.file.filename : ""
 
   };
 

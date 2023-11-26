@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const path = require("path");
 const jwt = require("jsonwebtoken");
 const express = require("express");
 const cors = require("cors");
@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, 'public')));
 // database conection
 const db = require("./models");
 

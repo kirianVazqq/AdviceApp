@@ -1,0 +1,100 @@
+<div class="form-adviser-container">
+  <div class="form-container">
+    <div class="image-container">
+      <img src="../../assets/icon/Icon-consultify-removebg-preview.png" />
+    </div>
+    <div class="title-form-container">
+      <h1>Crear usuario</h1>
+    </div>
+    <form [formGroup]="formAdviser">
+      <!-- <div text-center></div> -->
+      <div>
+        <ion-item class="input-container">
+          <ion-input
+            formControlName="userId"
+            type="text"
+            placeholder="Id usuario"
+          ></ion-input>
+        </ion-item>
+        <ion-item class="input-container">
+          <ion-input
+            formControlName="name"
+            type="text"
+            placeholder="Nombre"
+          ></ion-input>
+        </ion-item>
+        <ion-item class="input-container">
+          <ion-input
+            formControlName="lastName"
+            type="text"
+            placeholder="Apellidos"
+          ></ion-input>
+        </ion-item>
+        <ion-item class="input-container">
+          <ion-input
+            formControlName="dni"
+            type="text"
+            placeholder="DNI"
+          ></ion-input>
+        </ion-item>
+        <ion-button color="primary" fill="outline" (click)="pickImage()">
+          <ion-icon slot="start" name="image-outline"></ion-icon>
+          Pick an image
+        </ion-button>
+        <ion-button color="danger" fill="outline" (click)="discardImage()">
+          <ion-icon slot="start" name="aperture"></ion-icon>
+          Discard image
+        </ion-button>
+      </div>
+      <!-- <ion-checkbox class="checkbox-container" labelPlacement="end"
+        ><p>Admin</p></ion-checkbox -->
+      >
+      <div>
+        <ion-button
+          (click)="editButtonPressed ? editAdviser() :addAdviser ()"
+          [disabled]="formAdviser.invalid"
+        >
+          {{ editButtonPressed ? 'Editar' : 'Register' }}
+        </ion-button>
+      </div>
+    </form>
+  </div>
+
+  <!-- //--------------------------------------------------------------------------// -->
+  <div class="table-data-container">
+    <div class="show-data-container">
+      <div class="title-table-container"><h1>Usuarios</h1></div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Id Usuario</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>DNI</th>
+          </tr>
+        </thead> 
+        <tbody>
+          <tr *ngFor="let advisers of adviser">
+            <td>     <img
+              *ngIf="advisers.filename"
+              src="http://localhost:4000/images/{{advisers.filename}}"
+              alt="image"
+            /></td>
+       
+            <td>{{ advisers.userId }}</td>
+            <td>{{ advisers.name }}</td>
+            <td>{{ advisers.lastName }}</td>
+            <td>{{ advisers.dni }}</td>
+            <ion-button (click)="addInForm(advisers, advisers.id)">
+              <ion-icon name="create-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="deleteAdviser(advisers.id)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

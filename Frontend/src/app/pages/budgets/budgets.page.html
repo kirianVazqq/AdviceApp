@@ -4,7 +4,7 @@
     <section class="info-budgets-section">
       <header class="title-searchbar-header">
         <h1>Presupuestos</h1>
-        <ion-searchbar placeholder="Buscar clientes"></ion-searchbar>
+        <ion-searchbar   [(ngModel)]="searchedBudgets"></ion-searchbar>
         <ion-button (click)="goToBudgetsForm()">Crear presupuesto</ion-button>
       </header>
     </section>
@@ -21,7 +21,7 @@
         </thead>
   
         <tbody>
-          <tr *ngFor="let budget of budgets">
+          <tr *ngFor="let budget of searchBudgets()">
             <td>{{ budget.userId }}</td>
             <td>{{ budget.name }}</td>
             <td>{{ budget.brand }}</td>
@@ -33,7 +33,6 @@
             <ion-button (click)="deleteBudget(budget.id)">
               <ion-icon  name="trash-outline"></ion-icon>
             </ion-button>
-
           </tr>
         </tbody>
       </table>

@@ -10,6 +10,12 @@
     <div class="form-inputs-container">
       <ion-item>
         <ion-input 
+        formControlName="userId"
+        type="text"
+        placeholder="user id" />
+      </ion-item>
+      <ion-item>
+        <ion-input 
         formControlName="name"
         type="text"
         placeholder="Nombre" />
@@ -48,6 +54,6 @@
       </ion-item>
     </div>
   </form>
-    <ion-button id="button-save">Guardar</ion-button>
-  </div>
+  <ion-button (click)="editingForm ? editClient() : addClient()" id="button-save"> {{ editingForm ? 'Editar' : 'Guardar' }}</ion-button>
+</div>
 </div>

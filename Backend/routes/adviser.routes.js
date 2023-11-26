@@ -3,9 +3,11 @@ module.exports = app => {
     const auth = require("../controllers/auth.js");
 
     var router = require("express").Router();
+    
+    var upload = require("../multer/upload.js");
 
     // Create a new Adviser
-    router.post("/", auth.isAuthenticated, adviser.create);
+    router.post("/", auth.isAuthenticated, upload.single('file'), adviser.create );
 
     // Retrieve all Adviser
     router.get("/", auth.isAuthenticated, adviser.findAll);

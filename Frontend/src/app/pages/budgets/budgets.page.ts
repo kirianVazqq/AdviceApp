@@ -10,6 +10,9 @@ import { jwtDecode } from 'jwt-decode';
   styleUrls: ['./budgets.page.scss'],
 })
 export class BudgetsPage implements OnInit {
+  searchedBudgets:string ;
+  budgets: any[] = [];
+  flag: boolean = true;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -17,15 +20,16 @@ export class BudgetsPage implements OnInit {
     private storage: Storage
   ) {
     this.init();
+    this.searchedBudgets = '';
   }
-  budgets: any[] = [];
-  flag: boolean = true;
+  
   async init() {
     await this.storage.create();
   }
 
   ngOnInit() {
     this.getBudgetByUser();
+  
   }
   async getBudget() {
     const token = await this.storage.get('token');
@@ -55,6 +59,7 @@ export class BudgetsPage implements OnInit {
     this.budgetService.getBudgetsByUser(token, userId).subscribe(
       (data: any) => {
         this.budgets = data;
+        console.log(this.budgets);
       },
       (error) => {
         console.error('Error al obtener los presupuestos', error);
@@ -65,7 +70,6 @@ export class BudgetsPage implements OnInit {
   addInForm(budget: any) {
     const navigationExtras = {
       state: {
-
         flag: this.flag,
         budget: budget,
       },
@@ -89,56 +93,19 @@ export class BudgetsPage implements OnInit {
       console.error('Token no encontrado');
     }
   }
-  goToBudgetsForm(){
+  goToBudgetsForm() {
     this.router.navigate(['/form-budget']);
   }
+  searchBudgets() {
 
-  // async addInForm(user: any, id: number) {
-  //   this.editButtonPressed = true;
-  //   this.editingId = id;
-  //   this.formRegister.patchValue({
-  //     username: user.username,
-  //     email: user.email,
-  //   });
-  // }
+    // if(this.searchedBudgets.trim === '')return this.budgets
+    //  return this.searchedBudgets = this.searchedBudgets.filter((budget: any) => {
+    //     return budget.name.toLowerCase().indexOf(this.searchedBudgets.toLowerCase()) > -1;
+    //   });
+    if (this.searchedBudgets.trim() === '') return this.budgets;  
+    return this.budgets.filter((budget: any) => {
+      return budget.name.toLowerCase().includes(this.searchedBudgets.toLowerCase()) || budget.model.toLowerCase().includes(this.searchedBudgets.toLowerCase()) ;
+    });
 
-  // async editUser() {
-  //   if (!this.formRegister.valid) {
-  //     console.error('El formulario no es válido');
-  //     return;
-  //   }
-
-  //   // El ID del usuario debe estar disponible para poder editar
-  //   const userId = this.editingId; // Asegúrate de que editingId se ha definido y se ha establecido correctamente
-  //   if (!userId) {
-  //     console.error('No hay un ID de usuario para editar');
-  //     return;
-  //   }
-
-  //   // Obtener el token de autenticación si es necesario para tu API
-  //   const token = await this.storage.get('token');
-  //   if (!token) {
-  //     console.error('Token de autenticación no encontrado');
-  //     return;
-  //   }
-
-  //   const formValue = this.formRegister.value;
-  //   const userToUpdate = {
-  //     username: formValue.username,
-  //     email: formValue.email,
-  //     password: formValue.password,
-  //     isAdmin: false,
-  //   };
-
-  //   this.userService.editUser(userId, userToUpdate, token).subscribe(
-  //     (response) => {
-  //       console.log('Usuario actualizado exitosamente', response);
-  //     this.getUsers();
-  //     this.formRegister.reset();
-  //     },
-  //     (error) => {
-  //       console.error('Error al actualizar el usuario', error);
-  //     }
-  //   );
-  // }
+  }
 }
