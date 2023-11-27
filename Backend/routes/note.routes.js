@@ -4,7 +4,7 @@ module.exports = (app) => {
 
   var router = require("express").Router();
   // Create a new note
-  router.post("/", auth.isAuthenticated, notes.create);
+  router.post("/", notes.create);
 
   // Retrieve all note
   router.get("/", auth.isAuthenticated, notes.findAll);

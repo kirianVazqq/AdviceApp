@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 // Create and Save a new note
 exports.create = (req, res) => {
   // Validate request
+  console.log(req.body);
 
   // Create a note
   const note = {
