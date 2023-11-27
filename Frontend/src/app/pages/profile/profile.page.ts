@@ -3,6 +3,7 @@ import { NoteService } from 'src/app/services/note.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@ionic/storage-angular';
 import { jwtDecode } from 'jwt-decode';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -90,5 +91,9 @@ export class ProfilePage implements OnInit {
     } else {
       console.error('Token no encontrado');
     }
+  }
+  async logoutAndRedirect() {
+    await this.storage.clear();  // Esto borra todo el almacenamiento local
+    // this.router.navigateByUrl('/start');  
   }
 }

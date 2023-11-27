@@ -8,6 +8,7 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import { SharedModule } from 'src/app/shared.module';
+import { Router } from '@angular/router';
 
 @NgModule({
   imports: [
