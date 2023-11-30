@@ -37,7 +37,7 @@
           ></ion-input>
         </ion-item>
       </div>
-      <ion-checkbox formControlName="isAdmin" class="checkbox-container" labelPlacement="end">
+      <ion-checkbox formControlName="rol" class="checkbox-container" labelPlacement="end">
         <p>Admin</p>
       </ion-checkbox>
 
@@ -69,7 +69,7 @@
           <tr *ngFor="let user of users">
             <td>{{ user.email }}</td>
             <td>{{ user.username }}</td>
-            <td>{{ user.isAdmin }}</td>
+            <td>{{ user.rol }}</td> 
             <ion-button (click)="addInForm(user, user.id)">
               <ion-icon name="create-outline"></ion-icon>
             </ion-button>

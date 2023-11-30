@@ -8,11 +8,11 @@
     <div>
       <h1>Inicio</h1>
     </div>
-    <form #form="ngForm" (ngSubmit)="login(form)">
+    <form   [formGroup]="loginForm" >
       <div class="ion-text-center">
         <ion-item>
           <ion-input
-            name="username"
+          formControlName="username"
             placeholder="Usuario"
             ngModel
             required
@@ -20,7 +20,7 @@
         </ion-item>
         <ion-item>
           <ion-input
-            name="password"
+          formControlName="password"
             type="password"
             placeholder="Contraseña"
             ngModel
@@ -29,12 +29,10 @@
         </ion-item>
       </div>
       <div class="ion-text-center">
-        <ion-button type="submit" [disabled]="form.invalid" expand="block"
+        <ion-button  (click)="login()"  expand="block"
           >Inicio de sesión</ion-button
         >
       </div>
-
-      <ion-row> </ion-row>
     </form>
   </div>
 </div>

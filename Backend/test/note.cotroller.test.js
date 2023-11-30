@@ -18,7 +18,7 @@ describe("Events API", () => {
 
     // Datos de ejemplo para el evento
     let note = {
-      userId: 1,
+      userId: 12,
       info: "A description of the event.",
     };
 
@@ -31,7 +31,7 @@ describe("Events API", () => {
         // Verificar que la respuesta tenga un estado 200 (éxito)
         expect(res).to.have.status(200);
         // Verificar que la respuesta contenga la propiedad userId con el valor 1
-        expect(res.body).to.have.property("userId", 1);
+        expect(res.body).to.have.property("userId", 12);
         // Verificar que la respuesta contenga la propiedad info con el valor "A description of the event."
         expect(res.body).to.have.property(
           "info",

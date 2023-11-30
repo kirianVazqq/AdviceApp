@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     email: req.body.email,
     password: req.body.password, 
     username: req.body.username,
-    isAdmin: req.body.isAdmin ? req.body.isAdmin : false
+    rol: req.body.rol 
   };
 
   User.findOne({ where: { username: user.username } })

@@ -25,6 +25,7 @@ export class RegisterPage implements OnInit {
   editButtonPressed: boolean = false;
   formRegister!: FormGroup;
   users: any[] = [];
+  userRol: string = '';
   async init() {
     await this.storage.create();
   }
@@ -35,7 +36,7 @@ export class RegisterPage implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirm: ['', Validators.required],
-      isAdmin: [false]
+      rol: [false],
     });
   }
 
@@ -50,15 +51,18 @@ export class RegisterPage implements OnInit {
       console.error('Las contraseñas no coinciden');
       return;
     }
-
+    if (this.formRegister.get('rol')?.value == true) {
+      this.userRol = 'admin';
+    } else {
+      this.userRol = 'adviser';
+    }
     let user: User = {
       username: this.formRegister.get('username')?.value,
       email: this.formRegister.get('email')?.value,
       password: this.formRegister.get('password')?.value,
-      isAdmin: this.formRegister.get('isAdmin')?.value,
-      
+      rol: this.userRol,
     };
-    console.log(user.isAdmin)
+    console.log(user.rol);
     this.authService.register(user).subscribe(
       (res) => {
         console.log('Usuario creado', res);
@@ -126,8 +130,8 @@ export class RegisterPage implements OnInit {
     this.userService.editUser(userId, userToUpdate, token).subscribe(
       (response) => {
         console.log('Usuario actualizado exitosamente', response);
-      this.getUsers();
-      this.formRegister.reset();
+        this.getUsers();
+        this.formRegister.reset();
       },
       (error) => {
         console.error('Error al actualizar el usuario', error);

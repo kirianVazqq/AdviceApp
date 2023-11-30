@@ -11,7 +11,7 @@ function generateToken(user) {
     id: user.id,
     email: user.email,
     username: user.username,
-    isAdmin: user.isAdmin,
+    rol: user.rol,
     password: user.password
   };
   jwt.decode()
@@ -30,7 +30,7 @@ function getCleanUser(user) {
     id: user.id,
     email: user.email,
     username: user.username,
-    isAdmin: user.isAdmin,
+    rol: user.rol,
     password: user.password,
   };
 }

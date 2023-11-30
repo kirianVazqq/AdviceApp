@@ -3,5 +3,5 @@ export interface User {
 	password: string;
 	email?: string;
 	username: string;
-	isAdmin?: boolean;
+	rol?: string;
 }

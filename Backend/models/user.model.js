@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING
     },
-    isAdmin: {
-      type: DataTypes.BOOLEAN
+    rol: {
+      type: DataTypes.STRING
     }
   });
 

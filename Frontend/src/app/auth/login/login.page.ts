@@ -5,6 +5,7 @@ import { AlertController } from '@ionic/angular';
 import { User } from '../user';
 import { NgForm } from '@angular/forms';
 import { Storage } from '@ionic/storage-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,17 +16,27 @@ export class LoginPage implements OnInit {
     private router: Router,
     private authService: AuthService,
     private alertController: AlertController,
-    private storage: Storage
-  ) {}
-
+    private storage: Storage,
+    private formBuilder: FormBuilder
+  ) {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+  loginForm: FormGroup;
+  userRoles: any;
   ngOnInit() {}
   async init() {
     await this.storage.create();
   }
-  login(form: NgForm) {
+
+  async login() {
+    const username = this.loginForm.get('username')?.value;
+    const password = this.loginForm.get('password')?.value;
     let user: User = {
-      username: form.value.username,
-      password: form.value.password,
+      username: username,
+      password: password,
     };
     this.authService.login(user).subscribe(
       async (res) => {
@@ -33,14 +44,15 @@ export class LoginPage implements OnInit {
           this.presentAlert('invalid credentials');
           return;
         }
+        let user: any = res;
+        let rol = user.user.rol;
 
-        const isAdmin = await this.storage.get('isAdmin'); // Modificado aquí
-        if (isAdmin === true) {
+        if (rol == 'admin') {
           this.router.navigateByUrl('/register');
         } else {
           this.router.navigateByUrl('/main');
         }
-        form.reset();
+        this.loginForm.reset();
       },
       (err) => {
         this.presentAlert('Error');
