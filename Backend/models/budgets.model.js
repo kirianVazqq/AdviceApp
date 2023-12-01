@@ -9,6 +9,9 @@ module.exports = (sequelize, Sequelize) => {
       userId: {
         type: Sequelize.INTEGER,
       },
+      clientId: {
+        type: Sequelize.INTEGER,
+      },
       name: {
         type: Sequelize.STRING
       },
@@ -51,6 +54,13 @@ module.exports = (sequelize, Sequelize) => {
         as: "users",
       })
     }
+    Budget.associate = function(models) {
+      Budget.belongsTo(models.client, {
+      onDelete: "CASCADE",
+      foreignKey: "clientId",
+      as: "client",
+    })
+  }
   
     return Budget;
   };

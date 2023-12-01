@@ -37,10 +37,17 @@ db.Budget = require("./budgets.model")(sequelize,Sequelize)
 db.Note = require("./note.model")(sequelize,Sequelize)
 db.Client = require("./client.model")(sequelize,Sequelize)
 db.Adviser = require("./adviser.model")(sequelize,Sequelize)
+
 db.user.hasMany(db.Budget);
 db.Budget.belongsTo(db.user, {
   onDelete: "CASCADE",
   foreignKey: "userId"
+});
+
+db.client.hasMany(db.Budget);
+db.Budget.belongsTo(db.client, {
+  onDelete: "CASCADE",
+  foreignKey: "clientId"
 });
 db.user.hasMany(db.Note);
 db.Note.belongsTo(db.user, {

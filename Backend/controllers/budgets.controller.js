@@ -15,6 +15,7 @@ exports.create = (req, res) => {
   // Create a budget
   const budget = {
     userId: req.body.userId,
+    clientId: req.body.clientId,
     name: req.body.name,
     lastName: req.body.lastName,
     typeBudget: req.body.typeBudget,
