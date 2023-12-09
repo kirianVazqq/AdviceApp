@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BudgetService } from 'src/app/services/budget.service';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-form-budget',
   templateUrl: './form-budget.page.html',
@@ -23,7 +24,8 @@ export class FormBudgetPage implements OnInit {
   ngOnInit() {
     this.storage.create();
     this.formBudget = this.formBuilder.group({
-      userId: ['', Validators.required],
+      userId: [''],
+      clientId: ['', Validators.required],
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       typeBudget: ['', Validators.required],
@@ -43,25 +45,43 @@ export class FormBudgetPage implements OnInit {
       this.budget = state['budget'];
       // Muestra los valores por consola
 
-
       this.addInForm();
     } else {
       console.log('Los valores no están presentes en el state');
     }
   }
-
+  ngOnDestroy() {
+    this.formBudget.reset();
+  }
   async addBudget() {
     if (this.formBudget.invalid) {
       console.error('El formulario no es válido');
       return;
     }
-    let budget = this.formBudget.value;
+   
     const token = await this.storage.get('token');
     if (token === null) {
       console.error('Token no encontrado');
       return;
     }
-
+    const decoded = jwtDecode(token) as any; // Aquí estás diciendo que decoded puede ser de cualquier tipo
+    const userId = decoded.id; 
+    let budget = {
+      userId: userId,
+      clientId: this.formBudget.get('clientId')?.value,
+      name: this.formBudget.get('name')?.value,
+      lastName: this.formBudget.get('lastName')?.value,
+      typeBudget: this.formBudget.get('typeBudget')?.value,
+      brand: this.formBudget.get('brand')?.value,
+      model: this.formBudget.get('model')?.value,
+      tuition: this.formBudget.get('tuition')?.value,
+      kilometers: this.formBudget.get('kilometers')?.value,
+      horsepower: this.formBudget.get('horsepower')?.value,
+      typeVehicle: this.formBudget.get('typeVehicle')?.value,
+      insuranceName: this.formBudget.get('insuranceName')?.value,
+      price: this.formBudget.get('price')?.value,
+      // Añade más campos según sea necesario
+    };
     this.budgetService.addBudget(budget, token).subscribe(
       (res) => {
         console.log('Presupuesto creado', res);
@@ -75,12 +95,13 @@ export class FormBudgetPage implements OnInit {
   async addInForm() {
     this.formBudget.patchValue({
       userId: this.budget.userId,
+      clientId: this.budget.clientId,
       name: this.budget.name,
       lastName: this.budget.lastName,
       typeBudget: this.budget.typeBudget,
       brand: this.budget.brand,
       model: this.budget.model,
-      tuition:this.budget.tuition,
+      tuition: this.budget.tuition,
       kilometers: this.budget.kilometers,
       horsepower: this.budget.horsepower,
       typeVehicle: this.budget.typeVehicle,
@@ -110,12 +131,13 @@ export class FormBudgetPage implements OnInit {
     const budgetToUpdate = {
       username: formValue.username,
       userId: formValue.userId,
+      clientId: formValue.clientId,
       name: formValue.name,
       lastName: formValue.lastName,
       typeBudget: formValue.typeBudget,
       brand: formValue.brand,
       model: formValue.model,
-      tuition:formValue.tuition,
+      tuition: formValue.tuition,
       kilometers: formValue.kilometers,
       horsepower: formValue.horsepower,
       typeVehicle: formValue.typeVehicle,
@@ -126,8 +148,8 @@ export class FormBudgetPage implements OnInit {
     this.budgetService.editBudget(userId, budgetToUpdate, token).subscribe(
       (response) => {
         console.log('Usuario actualizado exitosamente', response);
-      this.formBudget.reset();
-      this.editingForm=false;
+        this.formBudget.reset();
+        this.editingForm = false;
       },
       (error) => {
         console.error('Error al actualizar el usuario', error);

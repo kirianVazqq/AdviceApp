@@ -44,9 +44,12 @@
 }
 
 .form-inputs-container {
+    height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
 
 }
 
@@ -69,13 +72,101 @@
     width: 906px;
     height: 52px;
 }
-.form-dni-phone-container{
-    
-}
-.dni-container{
-    ion-item{
+
+.form-dni-phone-container {}
+
+.dni-container {
+    ion-item {
         width: 313px;
         height: 52px;
     }
- 
+
+}
+
+.row-one {
+    
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+    #idClient-container {
+        width: 10%;
+        height: 52px;
+    }
+
+    #name-container {
+        width: 35%;
+        height: 52px;
+    }
+
+    #lastname-container {
+        width: 35%;
+        height: 52px;
+    }
+}
+
+.row-two {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    color: black;
+
+    .typeVehicle-container {
+        border: 1px black solid;
+        background: white;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .typeBudget-container {
+        padding: 10px;
+        border: 1px black solid;
+        background: white;
+     border-radius: 20px;
+
+    }
+
+}
+.row-three {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    ion-item{
+        width: 40%;
+
+    }
+}
+.row-four {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    ion-item{
+        width: 40%;
+
+    }
+}
+.row-five {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    ion-item{
+        width: 40%;
+
+    }
+}
+.row-six {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    ion-item{
+        width: 30%;
+
+    }
 }
