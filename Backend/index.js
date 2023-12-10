@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const initializeDatabase = require('./initializer');
 const app = express();
 const port = process.env.PORT || 4000;
 
@@ -35,8 +35,8 @@ const db = require("./models");
 // crear sin borrar
 db.sequelize.sync().then(() => {
   console.log("Sync db without dropping.");
+  initializeDatabase(); // Inicializar la base de datos después de sincronizar
 });
-
 //middleware that checks if JWT token exists and verifies it if it does exist.
 //In all future routes, this helps to know if the request is authenticated or not.
 app.use(function (req, res, next) {

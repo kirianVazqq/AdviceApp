@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { AdviserPageRoutingModule } from './adviser-routing.module';
-
+import { SharedModule } from 'src/app/shared.module';
 import { AdviserPage } from './adviser.page';
 
 @NgModule({
@@ -14,7 +14,8 @@ import { AdviserPage } from './adviser.page';
     FormsModule,
     IonicModule,
     AdviserPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
   ],
   declarations: [AdviserPage]
 })

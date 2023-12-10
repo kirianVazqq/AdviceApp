@@ -1,4 +1,5 @@
 <div class="form-user-container">
+  <app-navbar-admin/>
   <div class="form-container">
     <div class="image-container">
       <img src="../../assets/icon/Icon-consultify-removebg-preview.png" />
@@ -59,6 +60,7 @@
       <table>
         <thead>
           <tr>
+            <th>Id</th>
             <th>Email</th>
             <th>Nombre de usuario</th>
             <th>Admin</th>
@@ -67,6 +69,7 @@
 
         <tbody>
           <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.username }}</td>
             <td>{{ user.rol }}</td> 
