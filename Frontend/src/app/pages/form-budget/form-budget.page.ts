@@ -4,6 +4,7 @@ import { BudgetService } from 'src/app/services/budget.service';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+
 @Component({
   selector: 'app-form-budget',
   templateUrl: './form-budget.page.html',
@@ -14,6 +15,7 @@ export class FormBudgetPage implements OnInit {
   flag?: string;
   budget: any = [];
   editingForm: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private budgetService: BudgetService,
@@ -31,41 +33,42 @@ export class FormBudgetPage implements OnInit {
       typeBudget: ['', Validators.required],
       brand: ['', Validators.required],
       model: ['', Validators.required],
-      tuition: ['', Validators.required],
+      tuition: ['', [Validators.required, Validators.pattern(/^\d{4}[A-Z]{3}$/i)]],
       kilometers: ['', [Validators.required, Validators.min(0)]],
       horsepower: ['', [Validators.required, Validators.min(0)]],
       typeVehicle: ['', Validators.required],
       insuranceName: ['', Validators.required],
       price: ['', [Validators.required, Validators.min(0)]],
     });
+
     const state = this.router.getCurrentNavigation()?.extras.state;
 
     if (state && state['flag'] && state['budget']) {
       this.editingForm = state['flag'];
       this.budget = state['budget'];
-      // Muestra los valores por consola
-
       this.addInForm();
-    } else {
-      console.log('Los valores no están presentes en el state');
     }
   }
+
   ngOnDestroy() {
     this.formBudget.reset();
   }
+
   async addBudget() {
     if (this.formBudget.invalid) {
       console.error('El formulario no es válido');
       return;
     }
-   
+
     const token = await this.storage.get('token');
     if (token === null) {
       console.error('Token no encontrado');
       return;
     }
-    const decoded = jwtDecode(token) as any; // Aquí estás diciendo que decoded puede ser de cualquier tipo
-    const userId = decoded.id; 
+
+    const decoded = jwtDecode(token) as any;
+    const userId = decoded.id;
+
     let budget = {
       userId: userId,
       clientId: this.formBudget.get('clientId')?.value,
@@ -80,8 +83,8 @@ export class FormBudgetPage implements OnInit {
       typeVehicle: this.formBudget.get('typeVehicle')?.value,
       insuranceName: this.formBudget.get('insuranceName')?.value,
       price: this.formBudget.get('price')?.value,
-      // Añade más campos según sea necesario
     };
+
     this.budgetService.addBudget(budget, token).subscribe(
       (res) => {
         console.log('Presupuesto creado', res);
@@ -92,6 +95,7 @@ export class FormBudgetPage implements OnInit {
       }
     );
   }
+
   async addInForm() {
     this.formBudget.patchValue({
       userId: this.budget.userId,
@@ -109,18 +113,19 @@ export class FormBudgetPage implements OnInit {
       price: this.budget.price,
     });
   }
+
   async editBudget() {
     if (!this.formBudget.valid) {
       console.error('El formulario no es válido');
       return;
     }
-    const userId = this.budget.id; // Asegúrate de que editingId se ha definido y se ha establecido correctamente
+
+    const userId = this.budget.id;
     if (!userId) {
       console.error('No hay un ID de usuario para editar');
       return;
     }
 
-    // Obtener el token de autenticación si es necesario para tu API
     const token = await this.storage.get('token');
     if (!token) {
       console.error('Token de autenticación no encontrado');

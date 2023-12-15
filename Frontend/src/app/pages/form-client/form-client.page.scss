@@ -1,9 +1,25 @@
 .client-container {
     display: flex;
-
+   
 
 }
-
+.error-message p {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px; /* Reducir el margen superior si es necesario */
+    margin-bottom: 0; /* Eliminar el margen inferior para reducir el espacio */
+  }
+  
+  ion-item {
+    --padding-end: 0; /* Reducir el relleno al final del ion-item si es necesario */
+    --padding-bottom: 0; /* Reducir el relleno en la parte inferior del ion-item */
+    --inner-padding-end: 0; /* Reducir el relleno interno si es necesario */
+  }
+  
+  .form-inputs-container ion-item {
+    margin-bottom: 0; /* Reducir o eliminar el margen inferior de ion-item */
+  }
+  
 .form-client-container {
     width: 80%;
     height: 90vh;
@@ -32,8 +48,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-
+    margin-top: 20px;
+    h1{ color:black;
+        font-size: 46px;
+    }
 }
 
 #button-save {
@@ -44,35 +62,33 @@
 }
 
 .form-inputs-container {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
-
-.form-inputs-container ion-item {
+.form-inputs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Asegurarse de que ocupe el ancho disponible de su contenedor padre */
+  }
+  .form-inputs-container ion-item {
     border: 1px solid black;
-    margin: 20px;
-    width: 400px;
-    height: 48px;
+    margin: 20px 0; /* Margen superior e inferior, sin margen lateral */
     border-radius: 20px;
     --background: white;
-    width: 906px;
+    width: 90%; /* Ancho al 90% del contenedor */
+    max-width: 906px; /* Máximo ancho posible */
     height: 52px;
-
-}
-
-.form-inputs-container ion-input {
+  }
+  .form-inputs-container ion-input {
     --color: black;
     font-size: 22px;
-    width: 906px;
+    width: 100%; /* Ancho al 100% del ion-item */
     height: 52px;
-    width: 906px;
-    height: 52px;
-}
-.form-dni-phone-container{
-    
-}
+  }
 .dni-container{
     ion-item{
         width: 313px;

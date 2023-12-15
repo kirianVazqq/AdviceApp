@@ -1,9 +1,7 @@
 <div class="profile-container">
-
   <app-navbar />
   <div class="info-profile-container">
     <div class="top-profile-container">
-      <a href="/assets/html/Bienvenidos.html">Ayuda</a>
       <div class="image-user-container" *ngFor="let advisers of adviser">
         <img
           *ngIf="advisers.filename"
@@ -19,6 +17,9 @@
           <ion-fab-button routerLink="/start" (click)=" logoutAndRedirect()">
             <ion-icon name="log-in"></ion-icon>
           </ion-fab-button>
+          <ion-fab-button href="/assets/html/Bienvenidos.html">
+            <ion-icon name="help-circle-outline"></ion-icon>
+          </ion-fab-button>
         </ion-fab-list>
       </ion-fab>
       <div class="profile-mail-container">
@@ -27,7 +28,6 @@
           <p>Correo</p>
           <p>{{userEmail}}.es</p>
         </div>
-
       </div>
     </div>
 

@@ -1,6 +1,10 @@
 .login-container {
   display: flex;
 }
+ion-fab-button{
+  --color:black;
+  --background:#FC2020 ;
+}
 
 .image-container {
   width: 50%;

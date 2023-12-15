@@ -1,21 +1,19 @@
 <div class="client-preview-container">
-
-    <table>
-      <thead>
-        <tr>
-
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>DNI</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let client of clients">
-        <tr>
-          <td>{{ client.name }} {{ client.lastName }}</td>
-          <td>{{ client.email }}</td>
-          <td>{{ client.dni }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>DNI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.name }} {{ client.lastName }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.dni }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 

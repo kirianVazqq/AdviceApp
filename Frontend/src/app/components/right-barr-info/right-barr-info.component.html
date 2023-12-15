@@ -1,24 +1,11 @@
-<div class="right-bar-container">
+<div class="budget-list">
   <h1>Presupuestos recientes</h1>
-  <div class="info-budget-container">
-    <p>Juan Martin</p>
-    <p>Hogar</p>
-    <p>145,23€</p>
-  </div>
-  <div class="info-budget-container">
-    <p>Juan Martin</p>
-    <p>Hogar</p>
-    <p>145,23€</p>
-  </div>
-  <div class="info-budget-container">
-    <p>Juan Martin</p>
-    <p>Hogar</p>
-    <p>145,23€</p>
-  </div>
-  <div class="info-budget-container">
-    <p>Juan Martin</p>
-    <p>Hogar</p>
-    <p>145,23€</p>
-  </div>
+  <div *ngFor="let budget of budgets" class="budget-item">
+    <div class="budget-header">
 
+      <div class="budget-name">{{ budget.name }} {{ budget.lastName }}</div>
+      <div class="budget-type">{{ budget.typeBudget }}</div>
+    </div>
+    <div class="budget-price">{{ budget.price }}</div>
+  </div>
 </div>

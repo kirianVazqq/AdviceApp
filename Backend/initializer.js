@@ -5,7 +5,6 @@ async function initializeDatabase() {
   try {
     // Hashear la contraseña
     const hashedPasswordAdmin = bcrypt.hashSync('test1234', 10);
-    const hashedPasswordUser = bcrypt.hashSync('test1234', 10);
 
     // Crear usuarios de ejemplo
     const userAdmin = await db.user.create({
@@ -15,12 +14,6 @@ async function initializeDatabase() {
       rol: 'admin',
     });
 
-    const userNormal = await db.user.create({
-      username: 'user',
-      email: 'user@example.com',
-      password: hashedPasswordUser,
-      rol: 'adviser',
-    });
 
     // Más operaciones según sea necesario...
 

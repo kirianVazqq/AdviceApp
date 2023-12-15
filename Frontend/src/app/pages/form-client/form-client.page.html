@@ -2,52 +2,125 @@
   <app-navbar />
   <div class="form-client-container">
     <div class="header-client-form">
-      <img src="../../assets/icon/user-photo-icon.svg" />
-      <ion-button id="button-add-photo">Añadir foto</ion-button>
-      <ion-button id="button-delete-photo">Borrar cliente</ion-button>
+      <h1>Nuevo cliente</h1>
     </div>
     <form [formGroup]="formClient">
-    <div class="form-inputs-container">
-      <ion-item>
-        <ion-input 
-        formControlName="name"
-        type="text"
-        placeholder="Nombre" />
-      </ion-item>
-      <ion-item>
-        <ion-input 
-        formControlName="lastName"
-        type="text"
-        placeholder="Apellidos" />
-      </ion-item>
-      <ion-item>
-        <ion-input       
-        formControlName="address"
-        type="text"
-        placeholder="Direccion" />
-      </ion-item>
-      <div class="form-dni-phone-container">
-        <ion-item class="dni-container">
-          <ion-input 
-          formControlName="dni"
-          type="text"
-          placeholder="Dni" />
+      <div class="form-inputs-container">
+        <ion-item>
+          <ion-input
+            formControlName="name"
+            type="text"
+            placeholder="Nombre"
+          ></ion-input>
         </ion-item>
+        <div
+          *ngIf="formClient.get('name')?.invalid && formClient.get('name')?.touched"
+          class="error-message"
+        >
+          <p>El nombre es obligatorio.</p>
+        </div>
+
+        <ion-item>
+          <ion-input
+            formControlName="lastName"
+            type="text"
+            placeholder="Apellidos"
+          ></ion-input>
+        </ion-item>
+        <div
+          *ngIf="formClient.get('lastName')?.invalid && formClient.get('lastName')?.touched"
+          class="error-message"
+        >
+          <p>Los apellidos son obligatorios.</p>
+        </div>
+
+        <ion-item>
+          <ion-input
+            formControlName="address"
+            type="text"
+            placeholder="Dirección"
+          ></ion-input>
+        </ion-item>
+        <div
+          *ngIf="formClient.get('address')?.invalid && formClient.get('address')?.touched"
+          class="error-message"
+        >
+          <p>La dirección es obligatoria.</p>
+        </div>
+
+        <ion-item
+          [class.error]="formClient.get('dni')?.invalid && formClient.get('dni')?.touched"
+        >
+          <ion-input
+            formControlName="dni"
+            type="text"
+            placeholder="DNI"
+          ></ion-input>
+        </ion-item>
+        <div
+          *ngIf="formClient.get('dni')?.touched && formClient.get('dni')?.hasError('required')"
+          class="error-message"
+        >
+          <p>El DNI es obligatorio.</p>
+        </div>
+        <div
+          *ngIf="formClient.get('dni')?.touched && formClient.get('dni')?.hasError('pattern')"
+          class="error-message"
+        >
+          <p>El DNI debe tener 8 dígitos seguidos de una letra.</p>
+        </div>
+
+        <ion-item
+          [class.error]="formClient.get('email')?.invalid && formClient.get('email')?.touched"
+        >
+          <ion-input
+            formControlName="email"
+            type="text"
+            placeholder="Correo"
+          ></ion-input>
+        </ion-item>
+        <div
+          *ngIf="formClient.get('email')?.touched && formClient.get('email')?.hasError('required')"
+          class="error-message"
+        >
+          <p>El correo es obligatorio.</p>
+        </div>
+        <div
+          *ngIf="formClient.get('email')?.touched && formClient.get('email')?.hasError('email')"
+          class="error-message"
+        >
+          <p>Introduce una dirección de correo válida.</p>
+        </div>
+
+        <ion-item
+          [class.error]="formClient.get('numberAccount')?.invalid && formClient.get('numberAccount')?.touched"
+        >
+          <ion-input
+            maxlength="24"
+            formControlName="numberAccount"
+            type="text"
+            placeholder="Número de cuenta"
+          ></ion-input>
+        </ion-item>
+        <div
+          *ngIf="formClient.get('numberAccount')?.touched && formClient.get('numberAccount')?.hasError('required')"
+          class="error-message"
+        >
+          <p>El número de cuenta es obligatorio.</p>
+        </div>
+        <div
+          *ngIf="formClient.get('numberAccount')?.touched && formClient.get('numberAccount')?.hasError('pattern')"
+          class="error-message"
+        >
+          <p>El número de cuenta debe tener 2 letras seguidas de 22 números.</p>
+        </div>
       </div>
-      <ion-item>
-        <ion-input 
-        formControlName="email"
-        type="text"
-        placeholder="Correo" />
-      </ion-item>
-      <ion-item>
-        <ion-input 
-        formControlName="numberAccount"
-        type="text"
-        placeholder="Numero de cuenta" />
-      </ion-item>
-    </div>
-  </form>
-  <ion-button (click)="editingForm ? editClient() : addClient()" id="button-save"> {{ editingForm ? 'Editar' : 'Guardar' }}</ion-button>
-</div>
+    </form>
+    <ion-button
+      (click)="editingForm ? editClient() : addClient()"
+      id="button-save"
+    >
+      {{ editingForm ? 'Editar' : 'Guardar' }}
+    </ion-button>
+  </div>
 </div>

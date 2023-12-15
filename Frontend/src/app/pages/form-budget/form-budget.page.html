@@ -8,26 +8,28 @@
             <ion-input
               formControlName="clientId"
               type="text"
-              placeholder="Id Cliente"
+              [placeholder]="formBudget.get('clientId')?.invalid && formBudget.get('clientId')?.touched ? 'Id Cliente obligatorio' : 'Id Cliente'"
             ></ion-input>
           </ion-item>
+
           <ion-item id="name-container">
             <ion-input
               formControlName="name"
               type="text"
-              placeholder="Nombre"
+              [placeholder]="formBudget.get('name')?.invalid && formBudget.get('name')?.touched ? 'Nombre obligatorio' : 'Nombre'"
             ></ion-input>
           </ion-item>
+
           <ion-item id="lastname-container">
             <ion-input
               formControlName="lastName"
               type="text"
-              placeholder="Apellidos"
+              [placeholder]="formBudget.get('lastName')?.invalid && formBudget.get('lastName')?.touched ? 'Apellidos obligatorios' : 'Apellidos'"
             ></ion-input>
           </ion-item>
         </div>
-        <div class="row-two">
 
+        <div class="row-two">
           <div class="typeBudget-container">
             <ion-label>Tipo de Presupuesto</ion-label>
             <ion-select
@@ -53,68 +55,76 @@
             </ion-select>
           </div>
         </div>
+
         <div class="row-three">
           <ion-item>
             <ion-input
               formControlName="brand"
               type="text"
-              placeholder="Marca"
+              [placeholder]="formBudget.get('brand')?.invalid && formBudget.get('brand')?.touched ? 'Marca obligatoria' : 'Marca'"
             ></ion-input>
           </ion-item>
+
           <ion-item>
             <ion-input
               formControlName="model"
               type="text"
-              placeholder="Modelo"
+              [placeholder]="formBudget.get('model')?.invalid && formBudget.get('model')?.touched ? 'Modelo obligatorio' : 'Modelo'"
             ></ion-input>
           </ion-item>
         </div>
+
         <div class="row-four">
           <ion-item>
             <ion-input
               formControlName="tuition"
               type="text"
-              placeholder="Matrícula"
+              [placeholder]="formBudget.get('tuition')?.invalid && formBudget.get('tuition')?.touched ? 'Matrícula inválida (4 números y 3 letras)' : 'Matrícula'"
             ></ion-input>
           </ion-item>
+
           <ion-item>
             <ion-input
               formControlName="kilometers"
               type="number"
-              placeholder="Kilómetros"
+              [placeholder]="formBudget.get('kilometers')?.invalid && formBudget.get('kilometers')?.touched ? 'Kilómetros obligatorios' : 'Kilómetros'"
             ></ion-input>
           </ion-item>
         </div>
+
         <div class="row-five">
           <ion-item>
             <ion-input
               formControlName="horsepower"
               type="number"
-              placeholder="Caballos de Fuerza"
+              [placeholder]="formBudget.get('horsepower')?.invalid && formBudget.get('horsepower')?.touched ? 'Caballos de Fuerza obligatorios' : 'Caballos de Fuerza'"
             ></ion-input>
           </ion-item>
+
           <ion-item>
             <ion-input
               formControlName="insuranceName"
               type="text"
-              placeholder="Nombre del Seguro"
+              [placeholder]="formBudget.get('insuranceName')?.invalid && formBudget.get('insuranceName')?.touched ? 'Nombre del Seguro obligatorio' : 'Nombre del Seguro'"
             ></ion-input>
           </ion-item>
         </div>
+
         <div class="row-six">
           <ion-item>
             <ion-input
               formControlName="price"
               type="number"
-              placeholder="Precio"
+              [placeholder]="formBudget.get('price')?.invalid && formBudget.get('price')?.touched ? 'Precio obligatorio y positivo' : 'Precio'"
             ></ion-input>
           </ion-item>
+
           <ion-button
             (click)="editingForm ? editBudget() : addBudget()"
             id="button-save"
           >
-            {{ editingForm ? 'Editar' : 'Guardar' }}</ion-button
-          >
+            {{ editingForm ? 'Editar' : 'Guardar' }}
+          </ion-button>
         </div>
       </div>
     </form>

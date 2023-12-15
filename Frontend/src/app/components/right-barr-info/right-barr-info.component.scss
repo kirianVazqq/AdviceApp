@@ -1,14 +1,35 @@
-.right-bar-container{
-    margin-top:70px;
-    h1,p {
-        color:black;    
-    }
-    h1{
-        margin-bottom: 30px;    
-    }
-}
-.type-name-container{
-display:flex;
+.budget-list {
+  margin-top: 110px;
+  width: 100%;
+  height: 100vh;
+    color:black;
+    background-color:0; /* Cambia esto según tu color de fondo */
+    border-radius: 10px; /* Ajusta el radio del borde como sea necesario */
+    padding: 20px; /* Ajusta el relleno como sea necesario */
+  }
+  
+  .budget-item {
+    margin-bottom: 20px; /* Espacio entre elementos de la lista */
+  }
+  
+  .budget-header {
+    display: flex;
+    justify-content: space-between; /* Separa los elementos de la cabecera */
+    align-items: baseline; /* Alinea los elementos correctamente */
+  }
+  
 
+  
+  .budget-name {
+    font-weight: bold; /* Nombre y apellido en negrita */
+  }
+  
+ 
+  
+  .budget-price {
+    font-size: 0.8em; /* El precio es más pequeño que el nombre */
+    color: #666; /* Color del texto para el precio */
+  }
+  
 
-}
+  

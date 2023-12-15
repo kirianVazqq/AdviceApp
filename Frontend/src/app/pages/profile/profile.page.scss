@@ -15,6 +15,7 @@
     margin-left: 70px;
 
     ion-fab-button{
+        --color:black;
         --background:#FC2020 ;
     }
 
@@ -62,6 +63,7 @@
     margin-left: 70px;
     margin-top: 40px;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     .card-container {
         display: flex;
@@ -141,4 +143,24 @@
         }
     }
 
+}
+// .note-line-container::-webkit-scrollbar {
+//     width: 0px; /* Hace la barra de desplazamiento invisible */
+// }
+
+.note-line-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.note-line-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Color de fondo más transparente */
+}
+
+.note-line-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Color del thumb (la barra que desplazas) más transparente */
+    border-radius: 10px;
+}
+
+.note-line-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Color al pasar el mouse más oscuro pero aún transparente */
 }

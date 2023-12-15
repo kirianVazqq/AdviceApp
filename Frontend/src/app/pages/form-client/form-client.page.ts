@@ -26,9 +26,9 @@ export class FormClientPage implements OnInit {
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       address: ['', Validators.required],
-      dni: ['', Validators.required],
+      dni: ['', [Validators.required, Validators.pattern(/^\d{8}[A-Za-z]$/)]],
       email: ['', [Validators.required, Validators.email]],
-      numberAccount: ['', Validators.required],  // Corregir aquí
+      numberAccount: ['', [Validators.required, Validators.pattern(/^[A-Za-z]{2}\d{22}$/)]],
     });
     
     const state = this.router.getCurrentNavigation()?.extras.state;
