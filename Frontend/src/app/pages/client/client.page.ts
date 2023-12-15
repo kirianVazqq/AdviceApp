@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
+
 
 import { Storage } from '@ionic/storage-angular';
 import { jwtDecode } from 'jwt-decode';
@@ -11,17 +11,18 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./client.page.scss'],
 })
 export class ClientPage implements OnInit {
-
+  searchedClients:string;
+  clients: any[] = [];
+  flag: boolean = true;
   constructor(
     private router: Router,
-    private authService: AuthService,
     private clientService: ClientService,
     private storage: Storage
   ) {
     this.init();
+    this.searchedClients = '';
   }
-  clients: any[] = [];
-  flag: boolean = true;
+
   async init() {
     await this.storage.create();
   }
@@ -91,6 +92,16 @@ export class ClientPage implements OnInit {
       console.error('Token no encontrado');
     }
   }
+  goToClientsForm() {
+    this.router.navigate(['/form-client']);
+  }
 
+  searchClients() {
+    if (this.searchedClients.trim() === '') return this.clients;  
+    return this.clients.filter((client: any) => {
+      return client.name.toLowerCase().includes(this.searchedClients.toLowerCase()) || client.dni.toLowerCase().includes(this.searchedClients.toLowerCase()) ;
+    console.log(client.name)
+    });
 
+}
 }

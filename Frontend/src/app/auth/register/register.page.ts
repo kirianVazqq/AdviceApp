@@ -45,7 +45,7 @@ export class RegisterPage implements OnInit {
       console.error('El formulario no es válido');
       return;
     }
-
+  
     // Verifica si las contraseñas coinciden (si es necesario)
     if (this.formRegister.value.password !== this.formRegister.value.confirm) {
       console.error('Las contraseñas no coinciden');
@@ -56,23 +56,36 @@ export class RegisterPage implements OnInit {
     } else {
       this.userRol = 'adviser';
     }
-    let user: User = {
+  
+    let newUser = {
       username: this.formRegister.get('username')?.value,
       email: this.formRegister.get('email')?.value,
       password: this.formRegister.get('password')?.value,
       rol: this.userRol,
     };
-    console.log(user.rol);
-    this.authService.register(user).subscribe(
-      (res) => {
-        console.log('Usuario creado', res);
-        this.formRegister.reset();
-        this.getUsers();
-      },
-      (error) => {
-        console.error('Error al registrar el usuario', error);
+  
+    // Primero, obtén la lista de usuarios existentes
+    this.getUsers().then(() => {
+      // Comprueba si ya existe un usuario con el mismo nombre
+      const userExists = this.users.some(user => user.username === newUser.username);
+  
+      if (userExists) {
+        console.error('Error: Ya existe un usuario con ese nombre');
+        return;
       }
-    );
+  
+      // Si no existe, procede con la creación del usuario
+      this.authService.register(newUser).subscribe(
+        (res) => {
+          console.log('Usuario creado', res);
+          this.formRegister.reset();
+          this.getUsers();
+        },
+        (error) => {
+          console.error('Error al registrar el usuario', error);
+        }
+      );
+    });
   }
 
   async getUsers() {

@@ -7,15 +7,18 @@ module.exports = (sequelize, Sequelize) => {
       },
       userId: {
         type: Sequelize.INTEGER,
+        unique: true,  
       },
       name: {
         type: Sequelize.STRING,
+        notNull: true,   
       },
       lastName: {
         type: Sequelize.STRING,
       },
       dni: {
         type: Sequelize.STRING,
+        unique: true, 
       },
       filename: {
         type: Sequelize.STRING

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
 import { BudgetService } from 'src/app/services/budget.service';
 import { Storage } from '@ionic/storage-angular';
 import { jwtDecode } from 'jwt-decode';
@@ -15,7 +14,6 @@ export class BudgetsPage implements OnInit {
   flag: boolean = true;
   constructor(
     private router: Router,
-    private authService: AuthService,
     private budgetService: BudgetService,
     private storage: Storage
   ) {
@@ -98,13 +96,10 @@ export class BudgetsPage implements OnInit {
   }
   searchBudgets() {
 
-    // if(this.searchedBudgets.trim === '')return this.budgets
-    //  return this.searchedBudgets = this.searchedBudgets.filter((budget: any) => {
-    //     return budget.name.toLowerCase().indexOf(this.searchedBudgets.toLowerCase()) > -1;
-    //   });
     if (this.searchedBudgets.trim() === '') return this.budgets;  
     return this.budgets.filter((budget: any) => {
       return budget.name.toLowerCase().includes(this.searchedBudgets.toLowerCase()) || budget.model.toLowerCase().includes(this.searchedBudgets.toLowerCase()) ;
+      console.log(budget.name)
     });
 
   }

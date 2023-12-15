@@ -5,41 +5,21 @@
     background-color: #F0F0F0;
     width: 100%;
     height: 100%;
-
-}
-
-
-.client-info {
-    height: 100%;
-    width: 100%;
-
-    p {
-        color: black;
-    }
+    
 
 
 }
 
-.button-container {
-    display: flex;
-    justify-content: center;
 
-    ion-button {
-        --border-radius: 10px;
-        --background: white;
-        --color: black;
-        width: 140px;
-        height: 40px;
-    }
-}
+
 
 table {
 
     margin: auto;
-
     color: black;
     width: 80%;
     height: 90%;
+
 }
 
 th,

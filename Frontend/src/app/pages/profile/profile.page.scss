@@ -1,6 +1,7 @@
 .profile-container {
     display: flex;
-    .info-profile-container{
+
+    .info-profile-container {
         width: 100%;
 
 
@@ -11,10 +12,14 @@
     display: flex;
     color: black;
     margin-top: 30px;
-    margin-left:70px;
+    margin-left: 70px;
+
+    ion-fab-button{
+        --background:#FC2020 ;
+    }
 
     .profile-mail-container {
-        margin-left:30px;
+        margin-left: 30px;
     }
 
     .mail-container {
@@ -27,6 +32,23 @@
         border-radius: 15px;
 
     }
+    .image-user-container {
+        width: 150px;
+        height: 150px;
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 30px;
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+    }
 }
 
 
@@ -36,21 +58,23 @@
 
 .bottom-profile-container {
     display: flex;
-    width:100%;
-    margin-left:70px;
-    margin-top:40px; 
-   justify-content: space-between;
+    width: 100%;
+    margin-left: 70px;
+    margin-top: 40px;
+    justify-content: space-between;
+
     .card-container {
         display: flex;
         width: 600px;
         height: 200px;
         justify-content: space-around;
+
         ion-card {
             width: 200px;
             height: 200px;
             border-radius: 15px;
             background: #F0F0F0;
-           
+
 
             ion-card-header {
                 background: #FCD6D6;
@@ -70,7 +94,6 @@
 
 
 
-
     .note-container {
         color: black;
         width: 500px;
@@ -80,22 +103,25 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        margin:auto;
-        .note-line-container{
-           
-   
+        margin: auto;
+
+        .note-line-container {
+
+
             width: 80%;
             height: 100%;
             border-radius: 15px;
-            max-height: 330px; 
-            overflow-y: auto; 
-            p{
+            max-height: 330px;
+            overflow-y: auto;
+
+            p {
                 padding: 10px;
                 border-radius: 15px;
                 background: white;
-                margin:20px;
+                margin: 20px;
             }
         }
+
         .note-input-container {
             display: flex;
             justify-content: space-around;
@@ -114,4 +140,5 @@
             }
         }
     }
+
 }

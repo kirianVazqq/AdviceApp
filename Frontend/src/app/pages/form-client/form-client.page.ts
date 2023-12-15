@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientService } from 'src/app/services/client.service';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
+
 @Component({
   selector: 'app-form-client',
   templateUrl: './form-client.page.html',
@@ -21,13 +23,12 @@ export class FormClientPage implements OnInit {
   ngOnInit() {
     this.storage.create();
     this.formClient = this.formBuilder.group({
-      userId: ['', Validators.required],
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       address: ['', Validators.required],
       dni: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],  // Corregir aquí
+      email: ['', [Validators.required, Validators.email]],
+      numberAccount: ['', Validators.required],  // Corregir aquí
     });
     
     const state = this.router.getCurrentNavigation()?.extras.state;
@@ -43,19 +44,34 @@ export class FormClientPage implements OnInit {
       console.log('Los valores no están presentes en el state');
     }
   }
-
+  ngOnDestroy() {
+    this.formClient.reset();
+  }
   async addClient() {
     if (this.formClient.invalid) {
       console.error('El formulario no es válido');
       return;
     }
-    let client = this.formClient.value;
+ 
+
     const token = await this.storage.get('token');
     if (token === null) {
       console.error('Token no encontrado');
       return;
     }
+    const decoded = jwtDecode(token) as any; // Aquí estás diciendo que decoded puede ser de cualquier tipo
+    const userId = decoded.id; 
+    let client = {
+      userId: userId,
+      name: this.formClient.get('name')?.value,
+      lastName: this.formClient.get('lastName')?.value,
+      address: this.formClient.get('address')?.value,
+      dni: this.formClient.get('dni')?.value,
+      email: this.formClient.get('email')?.value,
+      numberAccount: this.formClient.get('numberAccount')?.value,
 
+      // Añade más campos según sea necesario
+    };
     this.clientService.addClient(client, token).subscribe(
       (res) => {
         console.log('Cliente creado', res);
@@ -68,13 +84,12 @@ export class FormClientPage implements OnInit {
   }
   async addInForm() {
     this.formClient.patchValue({
-      userId: this.client.userId,
       name: this.client.name,
       lastName: this.client.lastName,
       address: this.client.address,
       dni: this.client.dni,
-      phoneNumber:this.client.phoneNumber,
       email: this.client.email,
+      numberAccount: this.client.numberAccount,
 
 
     });
@@ -119,5 +134,6 @@ export class FormClientPage implements OnInit {
       }
     );
   }
+  
 }
 

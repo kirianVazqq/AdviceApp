@@ -4,7 +4,7 @@
     <div class="info-budgets-section">
       <header class="title-searchbar-header">
         <h1>Presupuestos</h1>
-        <ion-searchbar [(ngModel)]="searchedBudgets"></ion-searchbar>
+        <ion-searchbar [(ngModel)]="searchedBudgets" />
         <ion-button (click)="goToBudgetsForm()">Crear presupuesto</ion-button>
       </header>
     </div>
@@ -28,13 +28,13 @@
             <td>{{ budget.model }}</td>
             <td>{{ budget.horsepower }}</td>
             <div class="button-container">
-            <ion-button (click)="addInForm( budget)">
-              <ion-icon name="create-outline"></ion-icon>
-            </ion-button>
-            <ion-button (click)="deleteBudget(budget.id)">
-              <ion-icon name="trash-outline"></ion-icon>
-            </ion-button>
-          </div>
+              <ion-button (click)="addInForm(budget)">
+                <ion-icon name="create-outline"></ion-icon>
+              </ion-button>
+              <ion-button (click)="deleteBudget(budget.id)">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+            </div>
           </tr>
         </tbody>
       </table>

@@ -1,13 +1,21 @@
 <div class="main-container">
   <app-navbar />
   <div class="info-main-container">
-    <h1>Bienvenido, Kirian</h1>
-    <p>Recientes</p>
+    <h1>Bienvenido, {{userName}}</h1>
+    <p>Clientes recientes</p>
     <div class="client-preview-container">
       <app-client-preview />
+      <div class="carousel-container">
+        <img *ngFor="let b of images; let i = index" 
+             [src]="'../../../assets/images/budgets/' + b.imgSrc" 
+             [style.display]="i === slideIndex ? 'block' : 'none'">
+        
+        <button (click)="previousSlide()">&#10094;</button>
+        <button (click)="nextSlide()">&#10095;</button>
+      </div>
     </div>
 
-    <app-graphic />
+
   </div>
   <app-right-barr-info />
 </div>

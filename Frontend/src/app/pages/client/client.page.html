@@ -1,13 +1,14 @@
-<div class="budgets-container">
+<div class="clients-container">
   <app-navbar />
-  <div class="info-budget-container">
-    <section class="info-budgets-section">
+  <div class="info-clients-container">
+    <div class="info-clients-container">
       <header class="title-searchbar-header">
         <h1>Clientes</h1>
-        <ion-searchbar placeholder="Buscar clientes"></ion-searchbar>
+        <ion-searchbar [(ngModel)]="searchedClients"/>
+        <ion-button (click)="goToClientsForm()">Crear cliente</ion-button>
       </header>
-    </section>
-    <section class="budgets-info-container">
+    </div>
+    <div class="clients-info-container">
       <table>
         <thead>
           <tr>
@@ -15,67 +16,28 @@
             <th>Nombre</th>
             <th>Apellido</th>
             <th>DNI</th>
-            <th>Numero de cuenta</th>
+            <th>Nº de cuenta</th>
           </tr>
         </thead>
   
         <tbody>
-          <tr *ngFor="let client of clients">
+          <tr *ngFor="let client of searchClients()">
             <td>{{ client.id }}</td>
             <td>{{ client.name }}</td>
             <td>{{ client.lastName }}</td>
             <td>{{ client.dni }}</td>
             <td>{{ client.numberAccount }}</td>
-            <ion-button (click)="addInForm( client)">
+            <div class="button-container">
+            <ion-button (click)="addInForm(client)">
               <ion-icon name="create-outline"></ion-icon>
             </ion-button>
             <ion-button (click)="deleteClient(client.id)">
               <ion-icon  name="trash-outline"></ion-icon>
             </ion-button>
-
+            </div>
           </tr>
         </tbody>
       </table>
-    </section>
+    </div>
   </div>
 </div>
-
-<!-- //-------------------------------------------------------------------------// -->
-<!-- <div class="table-data-container">
-  <div class="show-data-container">
-    <div class="title-table-container"><h1>Usuarios</h1></div>
-    <table>
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>Nombre de usuario</th>
-          <th>Contraseña</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let budget of budgets">
-          <td>{{ budget.brand }}</td>
-          <td>{{ budget.model }}</td>
-          <td>{{ budget.horsepower }}</td>
-          <ion-button>
-            <img src="../../assets/images/trash.svg" />
-          </ion-button>
-          <ion-button>
-            <img src="../../assets/images/trash.svg" />
-          </ion-button>
-          <input
-            type="image"
-            src="../../assets/images/trash.svg"
-            alt="Enviar formulario"
-          />
-          <input
-            type="image"
-            src="../../assets/images/edit.svg"
-            alt="Enviar formulario"
-          />
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div> -->

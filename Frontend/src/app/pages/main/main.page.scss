@@ -1,5 +1,6 @@
 .main-container{
     display: flex;
+
 }
 h1, p{
     margin-left: 75px;
@@ -9,6 +10,7 @@ h1, p{
 }
 
 .client-preview-container{
+
     margin-left: 50px;
     width: 80%;
     background-color: black;
@@ -17,3 +19,45 @@ h1, p{
 
 
 
+.carousel-container {
+  margin-left: 50px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: 600px; // o el tamaño que prefieras
+
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+  
+    img {
+  
+margin: auto;
+      height: 100%;
+      width: 100%;
+      display: none;
+      object-fit: cover;
+    }
+  
+    button {
+      opacity: 70%;
+      width: 35px;
+      height: 25px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+  
+      &:first-child {
+        left: 0;
+      }
+  
+      &:last-child {
+        right: 0;
+      }
+    }
+
+  }
+.info-main-container{
+width: 60%;
+}
