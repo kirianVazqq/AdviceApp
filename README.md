@@ -77,7 +77,9 @@ E/R
 
 Casos de uso
 ![Captura de pantalla 2023-12-04 160027](https://github.com/kirianVazqq/Consultify/assets/117469820/158759ba-5b67-4ca5-88fe-1b2f8e84df4a)
+
 ---
+
 Diagrama de clases
 ![Captura de pantalla 2023-12-11 164538](https://github.com/kirianVazqq/Consultify/assets/117469820/a27473a1-5ab1-4a2d-b639-91290d42d063)
 ---
@@ -205,9 +207,12 @@ E/R
 
 ![Screenshot 2023-12-09 150614](https://github.com/kirianVazqq/Consultify/assets/117469820/9e60db69-207b-4f0a-aa1e-8a130b4551f0)
 
+
 Use Cases
 ![Screenshot 2023-12-04 160027](https://github.com/kirianVazqq/Consultify/assets/117469820/158759ba-5b67-4ca5-88fe-1b2f8e84df4a)
+
 ---
+
 Class Diagram
 ![Screenshot 2023-12-11 164538](https://github.com/kirianVazqq/Consultify/assets/117469820/a27473a1-5ab1-4a2d-b639-91290d42d063)
 ---
