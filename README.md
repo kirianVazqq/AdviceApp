@@ -47,6 +47,25 @@ La solución Consultify está diseñada para cumplir con los siguientes requisit
 ## Interfaces y Usabilidad
 La interfaz de usuario de Consultify, en su búsqueda por la simplicidad y la eficiencia, ha sido meticulosamente diseñada con una paleta de colores suaves y acogedores, dominada por tonos de blanco hueso y acentos de rojo, que invitan a la interacción sin distracciones. La tipografía se ha seleccionado por su legibilidad y tamaño, asegurando que la información sea fácilmente digerible de un vistazo. Cada elemento ha sido colocado de manera estratégica para garantizar una navegación intuitiva, con ventanas emergentes que proporcionan retroalimentación inmediata y constructiva al usuario. Además, se ha incorporado una guía de usuario dentro de la propia aplicación, ofreciendo asistencia on-the-go y reforzando la accesibilidad para todos los usuarios, independientemente de su familiaridad con plataformas digitales.
 
+- Color:
+Se han elegido colores para los iconos que destacan y son fácilmente ubicables. Además de encajar con la estética del resto de la aplicación.
+
+- Fuentes:
+Hemos evitado los bloques grandes de texto para favorecer la legibilidad, además de elegir fuentes y tamaños de fuente que facilitan la lectura de la misma.
+
+- Iconos:
+Los iconos elegidos son descriptivos y fáciles de recordar, para favorecer la rapidez de aprendizaje a la hora de usar la web. Tampoco hay demasiados iconos que creen desorden visual.
+
+- Elementos interactivos:
+A la hora de completar un formulario, el usuario obtiene un feedback de aquellos campos que tienen restricciones, obligatoriedad, número mínimo de caracteres, etc.
+
+Todos los elementos de la página están colocados de manera balanceada y simétrica, generando una comodidad visual.
+
+- Seguridad:
+Esta web tiene un grado de seguridad básico; la contraseña se guarda codificada y encriptada. Las rutas están protegidas y solo aquel que se loguee podrá acceder a su propio contenido.
+
+Por tanto, esta web es fácil de aprender a usar, eficiente en su gestión, es fácil recordar cómo usarla, carece de errores, y visualmente genera satisfacción.
+
 
 ## Manuales
 Los manuales de Consultify incluyen:
@@ -180,7 +199,26 @@ The Consultify solution is designed to meet the following fundamental requiremen
 - User Role: Clear distinction between advisor and administrator user permissions.
 
 ## Interfaces and Usability
-The user interface of Consultify, in its quest for simplicity and efficiency, has been meticulously designed with a palette of soft and welcoming colors, dominated by bone white tones and red accents, inviting interaction without distractions. The typography has been selected for its readability and size, ensuring that information is easily digestible at a glance. Each element has been strategically placed to ensure intuitive navigation, with pop-ups providing immediate and constructive feedback to the user. In addition, a user guide has been incorporated within the application itself, offering on-the-go assistance and reinforcing accessibility for all users, regardless of their familiarity with digital platforms.
+The user interface of Consultify has been meticulously designed in pursuit of simplicity and efficiency. It features a palette of soft, welcoming colors dominated by bone white tones with red accents, inviting distraction-free interaction. The typography has been chosen for its readability and size, ensuring that information is easily digestible at a glance. Every element is strategically placed to guarantee intuitive navigation, with pop-up windows providing immediate and constructive feedback to the user. Additionally, an in-app user guide offers on-the-go assistance, enhancing accessibility for all users, regardless of their familiarity with digital platforms.
+
+- Color:
+Colors for the icons have been chosen to stand out and be easily locatable, fitting in with the rest of the application's aesthetic.
+
+- Fonts:
+Large blocks of text have been avoided to enhance readability, and fonts and font sizes have been chosen to facilitate easy reading.
+
+- Icons:
+The chosen icons are descriptive and easy to remember, fostering quick learning when using the website. There are also not too many icons to create visual clutter.
+
+- Interactive Elements:
+When completing a form, the user receives feedback on fields that have restrictions, mandatory requirements, minimum number of characters, etc.
+
+All elements on the page are balanced and symmetrically placed, creating visual comfort.
+
+- Security:
+This website has a basic level of security; passwords are stored in an encoded and encrypted form. Routes are protected, and only logged-in users can access their own content.
+
+Therefore, this website is easy to learn to use, efficient in its management, easy to remember how to use, free of errors, and visually satisfying.
 
 ## Manuals
 The manuals of Consultify include:
