@@ -37,11 +37,20 @@ Esta estructura está diseñada para maximizar la eficiencia y la integridad de 
 
 
 ## Requisitos de Usuario
-La solución Consultify está diseñada para cumplir con los siguientes requisitos fundamentales:
-- Autenticación Segura: Los usuarios pueden acceder mediante credenciales verificadas.
-- Gestión de Presupuestos: Facilidad para crear, editar y eliminar presupuestos.
-- Administración de Clientes: Posibilidad de añadir y gestionar la información de los clientes.
-- Rol de Usuario: Distinción clara entre permisos de usuarios asesores y administradores.
+
+Para ejecutar una aplicación web que utiliza Angular, Ionic, Node.js, Express, Sequelize y MySQL, necesitarás una computadora con ciertas especificaciones técnicas. A continuación, te detallo los requisitos recomendados para un rendimiento óptimo:
+
+- Procesador (CPU): Un procesador moderno de gama media o alta. Un Intel Core i5 o superior, o su equivalente en AMD (como Ryzen 5), sería adecuado. Esto es importante para compilar el código y ejecutar las diversas herramientas de desarrollo.
+
+- Memoria RAM: Se recomienda al menos 8 GB de RAM. Sin embargo, 16 GB sería ideal, especialmente si planeas ejecutar múltiples aplicaciones o servicios al mismo tiempo (como tu IDE, servidores de bases de datos, aplicaciones de prueba, etc.).
+
+- Almacenamiento: Un disco duro SSD (unidad de estado sólido) es altamente recomendable por su velocidad de lectura/escritura, lo que agiliza la carga de programas y la compilación de código. Con respecto a la capacidad, 256 GB deberían ser suficientes, aunque esto depende de cuántos proyectos y herramientas planees instalar.
+
+- Sistema Operativo: Cualquier versión reciente de Windows (Windows 10 o 11), macOS o una distribución de Linux que soporte las últimas versiones de Node.js y los otros frameworks mencionados.
+
+- Tarjeta Gráfica (GPU): Para el desarrollo web, una GPU dedicada no es esencial a menos que estés trabajando en aplicaciones con gráficos intensivos o utilizando herramientas que se beneficien de la aceleración por hardware. Una GPU integrada en el procesador suele ser suficiente.
+
+- Conectividad a Internet: Una conexión estable a Internet es necesaria para descargar paquetes, frameworks, bibliotecas y para pruebas en línea.
 
 
 ## Interfaces y Usabilidad
