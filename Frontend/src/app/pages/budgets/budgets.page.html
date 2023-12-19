@@ -29,7 +29,7 @@
               <ion-button (click)="addInForm(budget)">
                 <ion-icon name="create-outline"></ion-icon>
               </ion-button>
-              <ion-button (click)="deleteBudget(budget.id)">
+              <ion-button (click)="presentDeleteAlert(budget)">
                 <ion-icon name="trash-outline"></ion-icon>
               </ion-button>
             </div>
@@ -38,4 +38,11 @@
       </table>
     </div>
   </div>
+  <ion-alert
+  id="confirm-delete-alert"
+  header="Confirmar eliminación"
+  message="¿Estás seguro de que quieres eliminar este presupuesto?"
+  [buttons]="deleteAlertButtons"
+></ion-alert>
+
 </div>

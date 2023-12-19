@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 
 import { Storage } from '@ionic/storage-angular';
@@ -14,10 +15,27 @@ export class ClientPage implements OnInit {
   searchedClients:string;
   clients: any[] = [];
   flag: boolean = true;
+  clientToDelete: any;
+  deleteClientAlertButtons = [
+    {
+      text: 'Cancelar',
+      role: 'cancel',
+      handler: () => {
+        console.log('Eliminación cancelada');
+      },
+    },
+    {
+      text: 'Eliminar',
+      handler: () => {
+        this.deleteClient(this.clientToDelete.id);
+      },
+    },
+  ];
   constructor(
     private router: Router,
     private clientService: ClientService,
-    private storage: Storage
+    private storage: Storage,
+    private alertController: AlertController
   ) {
     this.init();
     this.searchedClients = '';
@@ -29,6 +47,26 @@ export class ClientPage implements OnInit {
 
   ngOnInit() {
     this.getClientByUser();
+  }
+  async presentCreationSuccessAlert() {
+    const alert = await this.alertController.create({
+      header: 'Cliente Creado',
+      message: 'El cliente ha sido creado con éxito.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+  async presentDeleteClientAlert(client: any) {
+    this.clientToDelete = client;
+    const alert = await this.alertController.create({
+      id: 'confirm-delete-client-alert',
+      header: 'Confirmar eliminación',
+      message: '¿Estás seguro de que quieres eliminar este cliente?',
+      buttons: this.deleteClientAlertButtons,
+    });
+
+    await alert.present();
   }
   async getClient() {
     const token = await this.storage.get('token');

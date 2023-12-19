@@ -1,5 +1,5 @@
 <div class="form-adviser-container">
-  <app-navbar-admin/>
+  <app-navbar-admin />
   <div class="form-container">
     <div class="image-container">
       <img src="../../assets/icon/Icon-consultify-removebg-preview.png" />
@@ -38,6 +38,7 @@
             placeholder="DNI"
           ></ion-input>
         </ion-item>
+        <div class="button-image-container">
         <ion-button color="primary" fill="outline" (click)="pickImage()">
           <ion-icon slot="start" name="image-outline"></ion-icon>
           Pick an image
@@ -47,8 +48,8 @@
           Discard image
         </ion-button>
       </div>
-      <!-- <ion-checkbox class="checkbox-container" labelPlacement="end"
-        ><p>Admin</p></ion-checkbox -->
+      </div>
+
       >
       <div>
         <ion-button
@@ -74,15 +75,17 @@
             <th>Apellidos</th>
             <th>DNI</th>
           </tr>
-        </thead> 
+        </thead>
         <tbody>
           <tr *ngFor="let advisers of adviser">
-            <td>     <img
-              *ngIf="advisers.filename"
-              src="http://localhost:4000/images/{{advisers.filename}}"
-              alt="image"
-            /></td>
-       
+            <td>
+              <img
+                *ngIf="advisers.filename"
+                src="http://localhost:4000/images/{{advisers.filename}}"
+                alt="image"
+              />
+            </td>
+
             <td>{{ advisers.userId }}</td>
             <td>{{ advisers.name }}</td>
             <td>{{ advisers.lastName }}</td>

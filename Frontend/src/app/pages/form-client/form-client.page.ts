@@ -4,6 +4,7 @@ import { ClientService } from 'src/app/services/client.service';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-form-client',
@@ -15,10 +16,13 @@ export class FormClientPage implements OnInit {
   flag?: string;
   client: any = [];
   editingForm: boolean = false;
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private formBuilder: FormBuilder,
     private clientService: ClientService,
     private storage: Storage,
-    private router: Router) {}
+    private alertController: AlertController,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.storage.create();
@@ -28,16 +32,18 @@ export class FormClientPage implements OnInit {
       address: ['', Validators.required],
       dni: ['', [Validators.required, Validators.pattern(/^\d{8}[A-Za-z]$/)]],
       email: ['', [Validators.required, Validators.email]],
-      numberAccount: ['', [Validators.required, Validators.pattern(/^[A-Za-z]{2}\d{22}$/)]],
+      numberAccount: [
+        '',
+        [Validators.required, Validators.pattern(/^[A-Za-z]{2}\d{22}$/)],
+      ],
     });
-    
+
     const state = this.router.getCurrentNavigation()?.extras.state;
 
     if (state && state['flag'] && state['client']) {
       this.editingForm = state['flag'];
       this.client = state['client'];
       // Muestra los valores por consola
-
 
       this.addInForm();
     } else {
@@ -47,12 +53,20 @@ export class FormClientPage implements OnInit {
   ngOnDestroy() {
     this.formClient.reset();
   }
+  async presentSuccessAlert(message: string) {
+    const alert = await this.alertController.create({
+      header: 'Operación Exitosa',
+      message: message,
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
+
   async addClient() {
     if (this.formClient.invalid) {
       console.error('El formulario no es válido');
       return;
     }
- 
 
     const token = await this.storage.get('token');
     if (token === null) {
@@ -60,7 +74,7 @@ export class FormClientPage implements OnInit {
       return;
     }
     const decoded = jwtDecode(token) as any; // Aquí estás diciendo que decoded puede ser de cualquier tipo
-    const userId = decoded.id; 
+    const userId = decoded.id;
     let client = {
       userId: userId,
       name: this.formClient.get('name')?.value,
@@ -75,6 +89,7 @@ export class FormClientPage implements OnInit {
     this.clientService.addClient(client, token).subscribe(
       (res) => {
         console.log('Cliente creado', res);
+        this.presentSuccessAlert('El cliente ha sido creado con éxito.');
         this.formClient.reset();
       },
       (error) => {
@@ -90,8 +105,6 @@ export class FormClientPage implements OnInit {
       dni: this.client.dni,
       email: this.client.email,
       numberAccount: this.client.numberAccount,
-
-
     });
   }
   async editClient() {
@@ -118,22 +131,20 @@ export class FormClientPage implements OnInit {
       lastName: formValue.lastName,
       address: formValue.address,
       dni: formValue.dni,
-      phoneNumber:formValue.phoneNumber,
+      phoneNumber: formValue.phoneNumber,
       email: formValue.email,
-
     };
 
     this.clientService.editClient(userId, clientToUpdate, token).subscribe(
       (response) => {
         console.log('Usuario actualizado exitosamente', response);
-      this.formClient.reset();
-      this.editingForm=false;
+        this.presentSuccessAlert('El cliente ha sido editado con éxito.');
+        this.formClient.reset();
+        this.editingForm = false;
       },
       (error) => {
         console.error('Error al actualizar el usuario', error);
       }
     );
   }
-  
 }
-

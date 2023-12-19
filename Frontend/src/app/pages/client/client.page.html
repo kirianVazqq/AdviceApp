@@ -31,7 +31,7 @@
             <ion-button (click)="addInForm(client)">
               <ion-icon name="create-outline"></ion-icon>
             </ion-button>
-            <ion-button (click)="deleteClient(client.id)">
+            <ion-button (click)="presentDeleteClientAlert(client)">
               <ion-icon  name="trash-outline"></ion-icon>
             </ion-button>
             </div>
@@ -40,4 +40,10 @@
       </table>
     </div>
   </div>
+  <ion-alert
+  id="confirm-delete-client-alert"
+  header="Confirmar eliminación"
+  message="¿Estás seguro de que quieres eliminar este cliente?"
+  [buttons]="deleteClientAlertButtons"
+></ion-alert>
 </div>

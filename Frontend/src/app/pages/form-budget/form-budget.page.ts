@@ -4,6 +4,7 @@ import { BudgetService } from 'src/app/services/budget.service';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-form-budget',
@@ -20,7 +21,8 @@ export class FormBudgetPage implements OnInit {
     private formBuilder: FormBuilder,
     private budgetService: BudgetService,
     private storage: Storage,
-    private router: Router
+    private router: Router,
+    private alertController: AlertController 
   ) {}
 
   ngOnInit() {
@@ -53,7 +55,14 @@ export class FormBudgetPage implements OnInit {
   ngOnDestroy() {
     this.formBudget.reset();
   }
-
+  async presentSuccessAlert(message: string) {
+    const alert = await this.alertController.create({
+      header: 'Operación Exitosa',
+      message: message,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
   async addBudget() {
     if (this.formBudget.invalid) {
       console.error('El formulario no es válido');
@@ -88,6 +97,7 @@ export class FormBudgetPage implements OnInit {
     this.budgetService.addBudget(budget, token).subscribe(
       (res) => {
         console.log('Presupuesto creado', res);
+        this.presentSuccessAlert('El presupuesto ha sido creado con éxito.');
         this.formBudget.reset();
       },
       (error) => {
@@ -154,6 +164,7 @@ export class FormBudgetPage implements OnInit {
       (response) => {
         console.log('Usuario actualizado exitosamente', response);
         this.formBudget.reset();
+        this.presentSuccessAlert('El presupuesto ha sido creado con éxito.');
         this.editingForm = false;
       },
       (error) => {

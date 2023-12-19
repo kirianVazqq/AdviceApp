@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BudgetService } from 'src/app/services/budget.service';
 import { Storage } from '@ionic/storage-angular';
 import { jwtDecode } from 'jwt-decode';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-budgets',
   templateUrl: './budgets.page.html',
@@ -12,10 +13,27 @@ export class BudgetsPage implements OnInit {
   searchedBudgets:string ;
   budgets: any[] = [];
   flag: boolean = true;
+  budgetToDelete: any;
+  deleteAlertButtons = [
+    {
+      text: 'Cancelar',
+      role: 'cancel',
+      handler: () => {
+        console.log('Eliminación cancelada');
+      },
+    },
+    {
+      text: 'Eliminar',
+      handler: () => {
+        this.deleteBudget(this.budgetToDelete.id);
+      },
+    },
+  ];
   constructor(
     private router: Router,
     private budgetService: BudgetService,
-    private storage: Storage
+    private storage: Storage,
+    private alertController: AlertController
   ) {
     this.init();
     this.searchedBudgets = '';
@@ -28,6 +46,17 @@ export class BudgetsPage implements OnInit {
   ngOnInit() {
     this.getBudgetByUser();
   
+  }
+  async presentDeleteAlert(budget: any) {
+    this.budgetToDelete = budget;
+    const alert = await this.alertController.create({
+      id: 'confirm-delete-alert',
+      header: 'Confirmar eliminación',
+      message: '¿Estás seguro de que quieres eliminar este presupuesto?',
+      buttons: this.deleteAlertButtons,
+    });
+
+    await alert.present();
   }
   async getBudget() {
     const token = await this.storage.get('token');

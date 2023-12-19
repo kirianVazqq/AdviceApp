@@ -50,8 +50,8 @@
 
 .budgets-info-container {
     width: 70%;
-    height: 500px; /* Altura fija o puedes usar max-height */
-    overflow-y: auto; /* Habilita el desplazamiento */
+    height: 50%;
+    overflow-y: auto;
     background: #F0F0F0;
 }
 .budgets-info-container::-webkit-scrollbar {
@@ -59,42 +59,36 @@
 }
 
 .budgets-info-container::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1); /* Color de fondo más transparente */
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .budgets-info-container::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.5); /* Color del thumb más transparente */
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
 
 .budgets-info-container::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Color al pasar el mouse más oscuro pero aún transparente */
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 table {
-   
     margin:auto;
-
     color: black;
     width: 80%;
-    height: 90%
- ;
- }
- th, td {
+    height: 90%;
+}
+th, td {
     padding-top: 20px;
     width: 25%;
     text-align: left;
     vertical-align: top;
+}
 
- }
-
- .button-container{
+.button-container{
     margin-left: 40%;
-
     display:flex;
     ion-button{
- 
         color:black;
         --background: #F0F0F0;
     }
- }
+}
