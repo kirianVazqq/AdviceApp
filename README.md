@@ -6,6 +6,7 @@
 - [Descripción del Proyecto](#descripción-del-proyecto)
 - [Modelo de Datos](#modelo-de-datos)
 - [Requisitos de Usuario](#requisitos-de-usuario)
+- [Requisitos rtecnicos](#requisitos-tecnicos)
 - [Interfaces y Usabilidad](#interfaces-y-usabilidad)
 - [Manuales](#manuales)
 - [Pila Tecnológica](#pila-tecnológica)
@@ -37,24 +38,24 @@ Esta estructura está diseñada para maximizar la eficiencia y la integridad de 
 
 
 ## Requisitos de Usuario
-Esta aplicación esta diseñada para escritorios y pantallas de tamaño superior a un movil.
-Los usuarios que quieran usar la aplicacion deberan ser autorizados y creados sus usuarios por parte de un administrador.
-Para cualquier borrado se consultará al usuario, mostrando en pantalla lo que se va a borrar, si
-está seguro del borrado.
-Al introducir un dni para la búsqueda se aplicará una "máscara" para asegurarnos que es un dni
-válido. ( númerosLetra).
-Todos los presupuestos, clientes y notas deberan tener asignado un id de usuario.
-Los campos Dni, Numero de cuenta, nombre de usuario y email seran campos unicos y no deberan repetirse.
-La aplicación solo podra usarse si el backend esta encendido.
-Un asesor solo podra tener un unico usuario.
-Un cliente solo podra estar relacionado con un asesor.
-Un presupuesto solo podra estar relacionado con un asesor.
+- Esta aplicación esta diseñada para escritorios y pantallas de tamaño superior a un movil.
+- Los usuarios que quieran usar la aplicacion deberan ser autorizados y creados sus usuarios por parte de un administrador.
+- Para cualquier borrado se consultará al usuario, mostrando en pantalla lo que se va a borrar, si
+- está seguro del borrado.
+- Al introducir un dni para la búsqueda se aplicará una "máscara" para asegurarnos que es un dni
+- válido. ( númerosLetra).
+- Todos los presupuestos, clientes y notas deberan tener asignado un id de usuario.
+- Los campos Dni, Numero de cuenta, nombre de usuario y email seran campos unicos y no deberan repetirse.
+- La aplicación solo podra usarse si el backend esta encendido.
+- Un asesor solo podra tener un unico usuario.
+- Un cliente solo podra estar relacionado con un asesor.
+- Un presupuesto solo podra estar relacionado con un asesor.
 
 
 
 
 
-.--REQUISITOS TECNICOS
+## REQUISITOS TECNICOS
 Para ejecutar una aplicación web que utiliza Angular, Ionic, Node.js, Express, Sequelize y MySQL, necesitarás una computadora con ciertas especificaciones técnicas. A continuación, te detallo los requisitos recomendados para un rendimiento óptimo:
 
 - Procesador (CPU): Un procesador moderno de gama media o alta. Un Intel Core i5 o superior, o su equivalente en AMD (como Ryzen 5), sería adecuado. Esto es importante para compilar el código y ejecutar las diversas herramientas de desarrollo.
