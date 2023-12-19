@@ -37,7 +37,24 @@ Esta estructura está diseñada para maximizar la eficiencia y la integridad de 
 
 
 ## Requisitos de Usuario
+Esta aplicación esta diseñada para escritorios y pantallas de tamaño superior a un movil.
+Los usuarios que quieran usar la aplicacion deberan ser autorizados y creados sus usuarios por parte de un administrador.
+Para cualquier borrado se consultará al usuario, mostrando en pantalla lo que se va a borrar, si
+está seguro del borrado.
+Al introducir un dni para la búsqueda se aplicará una "máscara" para asegurarnos que es un dni
+válido. ( númerosLetra).
+Todos los presupuestos, clientes y notas deberan tener asignado un id de usuario.
+Los campos Dni, Numero de cuenta, nombre de usuario y email seran campos unicos y no deberan repetirse.
+La aplicación solo podra usarse si el backend esta encendido.
+Un asesor solo podra tener un unico usuario.
+Un cliente solo podra estar relacionado con un asesor.
+Un presupuesto solo podra estar relacionado con un asesor.
 
+
+
+
+
+.--REQUISITOS TECNICOS
 Para ejecutar una aplicación web que utiliza Angular, Ionic, Node.js, Express, Sequelize y MySQL, necesitarás una computadora con ciertas especificaciones técnicas. A continuación, te detallo los requisitos recomendados para un rendimiento óptimo:
 
 - Procesador (CPU): Un procesador moderno de gama media o alta. Un Intel Core i5 o superior, o su equivalente en AMD (como Ryzen 5), sería adecuado. Esto es importante para compilar el código y ejecutar las diversas herramientas de desarrollo.
@@ -58,20 +75,41 @@ La interfaz de usuario de Consultify, en su búsqueda por la simplicidad y la ef
 
 - Color:
 Se han elegido colores para los iconos que destacan y son fácilmente ubicables. Además de encajar con la estética del resto de la aplicación.
+Paleta de colores
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/e2d76565-2359-4b66-a542-61cf9268a020)
 
 - Fuentes:
 Hemos evitado los bloques grandes de texto para favorecer la legibilidad, además de elegir fuentes y tamaños de fuente que facilitan la lectura de la misma.
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/7297a2ce-88d7-46b9-97f9-4552f4357e60)
 
 - Iconos:
 Los iconos elegidos son descriptivos y fáciles de recordar, para favorecer la rapidez de aprendizaje a la hora de usar la web. Tampoco hay demasiados iconos que creen desorden visual.
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/2c38f72a-481b-4214-aba0-8d3e4325b4fe)
 
 - Elementos interactivos:
 A la hora de completar un formulario, el usuario obtiene un feedback de aquellos campos que tienen restricciones, obligatoriedad, número mínimo de caracteres, etc.
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/d7b58ecf-5565-4f2e-980a-e24ab75b34a8)
 
-Todos los elementos de la página están colocados de manera balanceada y simétrica, generando una comodidad visual.
+ - FeedBack al usuario
+Cuando añadimos un usuario, si se ha creado correctamente una ventana nos avisara de que se ha creado satisfactoriamente.
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/0c7060c4-6f66-4601-9035-75b28a741a46)
+Tambien, al intentar borrar un usuario una ventana nos pedira una confirmación, evitando asi borrar por accidente.
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/090cb749-6ea5-4d1c-b5a9-fe3e568ea3e6)
+
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/d7b58ecf-5565-4f2e-980a-e24ab75b34a8)
+- Todos los elementos de la página están colocados de manera balanceada y simétrica, generando una comodidad visual.
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/0125a3ba-dcd7-47db-aefb-e8201ac44bf1)
+
+-Menú
+Cuenta con un menu lateras que facilita el desplazamiento por todas las interfaces, ademas de estar ubicado en una zona muy comoda, cuenta con unos iconos simples, descriptivos y faciles de recordar
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/9a940dae-609a-45ed-bac5-1ae2d6ba73b5)
 
 - Seguridad:
 Esta web tiene un grado de seguridad básico; la contraseña se guarda codificada y encriptada. Las rutas están protegidas y solo aquel que se loguee podrá acceder a su propio contenido.
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/8d80cf7e-91a7-46e4-8f2b-8aa2dc7f46ec)
+Esta encriptacion y codificacion asegura un alto grado de seguridad.
+Ademas, la aplicacion cuenta con un token que permite decidir quien tiene acceso a cada parte de la pagina haciendo uso de los roles. Este token se almacena en el local host.
+![image](https://github.com/kirianVazqq/Consultify/assets/117469820/ef715735-5aa6-433b-a720-11b8474286d3)
 
 Por tanto, esta web es fácil de aprender a usar, eficiente en su gestión, es fácil recordar cómo usarla, carece de errores, y visualmente genera satisfacción.
 
