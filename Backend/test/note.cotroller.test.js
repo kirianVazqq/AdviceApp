@@ -1,44 +1,46 @@
-// test/events.test.js
-
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-const { sequelize } = require("../models");
+const { sequelize, user } = require("../models"); // Asegúrate de importar el modelo de usuario
 const app = require("../index");
 
 chai.use(chaiHttp);
 const expect = chai.expect;
 
-// Descripción de la prueba para la API de eventos
 describe("Events API", () => {
-  it("should insert a new event", (done) => {
-    // Antes de ejecutar la prueba, sincronizar la base de datos
-    before(async () => {
-      await sequelize.sync();
-    });
+  let createdUserId;
 
-    // Datos de ejemplo para el evento
+
+  before(async () => {
+    await sequelize.query('SET FOREIGN_KEY_CHECKS = 0');
+    await sequelize.sync({ force: true });
+    await sequelize.query('SET FOREIGN_KEY_CHECKS = 1');
+  });
+
+  beforeEach(async () => {
+    const newUser = await user.create({
+      email: "test@example.com",
+      username: "testuser",
+      password: "password",
+      rol: "user"
+    });
+    createdUserId = newUser.id;
+  });
+
+  it("should insert a new event", (done) => {
     let note = {
-      userId: 12,
+      userId: createdUserId,
       info: "A description of the event.",
     };
 
-    // Realizar una solicitud POST a la ruta /api/note con los datos del evento
-    chai
-      .request(app)
+    chai.request(app)
       .post("/api/note")
       .send(note)
       .end((err, res) => {
-        // Verificar que la respuesta tenga un estado 200 (éxito)
         expect(res).to.have.status(200);
-        // Verificar que la respuesta contenga la propiedad userId con el valor 1
-        expect(res.body).to.have.property("userId", 12);
-        // Verificar que la respuesta contenga la propiedad info con el valor "A description of the event."
-        expect(res.body).to.have.property(
-          "info",
-          "A description of the event."
-        );
-        done(); // Indicar que la prueba ha finalizado
+        expect(res.body).to.have.property("userId", createdUserId);
+        expect(res.body).to.have.property("info", "A description of the event.");
+        done();
       });
   });
-});
 
+});
