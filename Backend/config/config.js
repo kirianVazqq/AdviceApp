@@ -11,7 +11,7 @@ module.exports = {
   test: {
     username: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
-    database: "db_consultify_test", // Nombre de la base de datos de pruebas
+    database: "db_consultify_test", 
     host: process.env.DB_HOST,
     dialect: 'mysql'
   },
