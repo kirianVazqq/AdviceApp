@@ -8,8 +8,8 @@ module.exports = app => {
     router.post("/", auth.isAuthenticated, budgets.create);
 
     // Retrieve all budget
-    router.get("/", auth.isAuthenticated, budgets.findAll);
-
+    router.get("/", budgets.findAll);
+    router.get("/budgetsByUser", budgets.getTotalBudgetsByUser);
     // Retrieve a single budget with id
     router.get("/:id", auth.isAuthenticated, budgets.findOne);
 

@@ -10,8 +10,9 @@ module.exports = app => {
     router.post("/", auth.isAuthenticated, upload.single('file'), adviser.create );
 
     // Retrieve all Adviser
-    router.get("/", auth.isAuthenticated, adviser.findAll);
+    router.get("/", adviser.findAll);
 
+    router.get("/count",  adviser.countAdviser);
     // Retrieve a single Adviser with id
     router.get("/:id", auth.isAuthenticated, adviser.findOne);
 
@@ -23,6 +24,8 @@ module.exports = app => {
 
     // Delete a Adviser with id
     router.delete("/:id", auth.isAuthenticated, adviser.delete);
+
+  
 
     app.use('/api/advisers', router);
 };

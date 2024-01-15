@@ -1,0 +1,39 @@
+/* Estilo para la tabla principal */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para las tablas secundarias */
+div table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+div table, div th, div td {
+    border: 1px solid #ddd;
+}
+
+div th, div td {
+    padding: 8px;
+    text-align: left;
+}
+
+div th {
+    background-color: #f2f2f2;
+}

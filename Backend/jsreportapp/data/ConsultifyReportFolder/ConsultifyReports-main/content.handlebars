@@ -1,0 +1,138 @@
+<!-- HTML template for the adviser report -->
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js'></script>
+    <style>
+
+            {{asset "styles.css" "utf8"}}
+
+    </style>
+</head>
+<body>
+    <div class="">
+            <h1>Listado de Asesores</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>DNI</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each advisers}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{lastName}}</td>
+                    <td>{{dni}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    </div>
+
+<div class="adviser-count">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Total de Asesores</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{adviserCount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="user-count">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Total de Usuarios</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{userCount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="user-budgets">
+    <h1>Presupuestos de Usuario</h1>
+    <!-- Aquí puedes añadir un contenedor para el gráfico -->
+    <div style="width: 80%; margin: auto;">
+        <canvas id="userBudgetsChart"></canvas>
+    </div>
+
+    <!-- Tabla (puedes mantenerla si también quieres mostrar los datos en forma tabular) -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre de usuario</th>
+                <th>Total de presupuestos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each userBudgets}}
+                <tr>
+                    <td>{{userName}}</td>
+                    <td>{{totalBudgets}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Script para inicializar el gráfico de barras -->
+<script>
+    // Obtén los datos de presupuestos de usuario directamente del HTML
+    var userBudgetsData = [];
+    {{#each userBudgets}}
+        var userName = '{{userName}}';
+        var totalBudgets = {{totalBudgets}};
+        userBudgetsData.push({ userName: userName, totalBudgets: totalBudgets });
+        console.log('userName:', userName, 'totalBudgets:', totalBudgets);
+    {{/each}}
+
+    // Extrae los nombres de usuario y totales de presupuestos
+    var labels = userBudgetsData.map(entry => entry.userName);
+    var data = userBudgetsData.map(entry => entry.totalBudgets);
+  console.log(labels);
+    console.log(data)
+    // Configuración del gráfico de barras
+    var ctx = document.getElementById('userBudgetsChart').getContext('2d');
+    var userBudgetsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Total de presupuestos',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                data: data
+            }]
+        },
+        options: {
+            animation:{duration:0},
+ scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+                
+            }
+        }]
+    }
+        }
+    });
+</script>
+
+
+
+</body>
+</html>

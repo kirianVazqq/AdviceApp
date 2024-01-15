@@ -33,6 +33,7 @@ exports.create = (req, res) => {
       return res.json({ user: userObj, access_token: token });
     }
 
+
     user.password = bcrypt.hashSync(req.body.password);
 
     // User not found. Save new User in the database
@@ -62,6 +63,18 @@ exports.create = (req, res) => {
 
 };
 
+
+exports.countUser = (req, res) => {
+  User.count()
+    .then((count) => {
+      res.send({ count });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving count for User.",
+      });
+    });
+};
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
 

@@ -33,6 +33,8 @@ module.exports = (sequelize, Sequelize) => {
         as: "users",
       });
     };
-  
+
+
+
     return Adviser;
   };

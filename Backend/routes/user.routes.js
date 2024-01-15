@@ -9,7 +9,9 @@ module.exports = (app) => {
   router.post("/", upload.single("file"), users.create);
 
   // Retrieve all User
-  router.get("/", auth.isAuthenticated, users.findAll);
+  router.get("/", users.findAll);
+
+  router.get("/count",  users.countUser);
 
   // Retrieve a single User with id
   router.get("/:id", auth.isAuthenticated, users.findOne);

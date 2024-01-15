@@ -8,9 +8,14 @@ const initializeDatabase = require('./initializer');
 const app = express();
 const port = process.env.PORT || 4000;
 
+
+
 var corsOptions = {
   origin: "http://localhost:8100",
 };
+
+// app.use(jsreport.middleware.express());
+
 // enable CORS
 app.use(cors(corsOptions));
 

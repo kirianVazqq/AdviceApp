@@ -1,0 +1,23 @@
+{
+    "name": "ConsultifyReports-main",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": null,
+    "shortid": "AODFBOgcaU",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1705053111591
+    },
+    "modificationDate": {
+        "$$date": 1705333997748
+    },
+    "_id": "X5Lk5IBaNsLTm7Gw",
+    "$entitySet": "templates",
+    "scripts": [
+        {
+            "shortid": "h6p2ModdCt"
+        }
+    ]
+}

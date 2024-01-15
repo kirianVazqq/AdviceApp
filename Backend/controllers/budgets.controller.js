@@ -1,6 +1,8 @@
 const db = require("../models");
+const { sequelize, Sequelize, Op } = require('../models'); // Asegúrate de que la ruta sea correcta
+
 const Budget = db.Budget
-const Op = db.Sequelize.Op;
+const User = db.User;
 const jwt = require('jsonwebtoken');
 // Create and Save a new budget
 exports.create = (req, res) => {
@@ -38,6 +40,23 @@ exports.create = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating the budget.",
+      });
+    });
+};
+
+
+exports.getTotalBudgetsByUser = (req, res) => {
+  Budget.findAll({
+    attributes: ['UserId', [sequelize.fn('COUNT', 'id'), 'totalBudgets']],
+    include: [{ model: User, attributes: ['username'] }],
+    group: ['UserId'],
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving total budgets by user",
       });
     });
 };

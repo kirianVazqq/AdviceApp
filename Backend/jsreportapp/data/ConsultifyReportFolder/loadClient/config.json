@@ -1,0 +1,16 @@
+{
+    "name": "loadClient",
+    "scope": "template",
+    "shortid": "h6p2ModdCt",
+    "creationDate": {
+        "$$date": 1705056780550
+    },
+    "modificationDate": {
+        "$$date": 1705316645838
+    },
+    "_id": "uR0OCvKaTekSNgGX",
+    "$entitySet": "scripts",
+    "entitySet": "scripts",
+    "type": "entity",
+    "key": "uR0OCvKaTekSNgGX"
+}

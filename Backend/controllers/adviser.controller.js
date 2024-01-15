@@ -35,6 +35,10 @@ exports.create = (req, res) => {
     });
 };
 
+
+
+
+
 // Retrieve all budgets from the database.
 exports.findAll = (req, res) => {
   console.log(Adviser)
@@ -81,6 +85,18 @@ exports.findOne = (req, res) => {
     });
 };
 
+// Find a single Adviser with an id
+exports.countAdviser = (req, res) => {
+  Adviser.count()
+    .then((count) => {
+      res.send({ count });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving count for Advisers",
+      });
+    });
+};
 // Update a Adviser by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;

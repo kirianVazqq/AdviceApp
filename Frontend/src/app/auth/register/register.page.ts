@@ -39,7 +39,13 @@ export class RegisterPage implements OnInit {
       rol: [false],
     });
   }
-
+   abrirNuevaVentana() {
+    // Especifica la URL que deseas abrir en la nueva ventana
+    var url = 'http://localhost:5488/templates/AODFBOgcaU';
+  
+    // Abre una nueva ventana
+    window.open(url, '_blank');
+  }
   register() {
     if (this.formRegister.invalid) {
       console.error('El formulario no es válido');
